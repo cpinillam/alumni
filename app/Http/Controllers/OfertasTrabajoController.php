@@ -14,7 +14,9 @@ class OfertasTrabajoController extends Controller
      */
     public function index()
     {
-        //
+       
+        $ofertasTrabajo = OfertasTrabajo::all();
+        return view('ofertastrabajo', ['ofertastrabajo'=>$ofertasTrabajo]);
     }
 
     /**

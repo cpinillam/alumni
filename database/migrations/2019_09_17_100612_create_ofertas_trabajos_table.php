@@ -18,6 +18,7 @@ class CreateOfertasTrabajosTable extends Migration
             $table->integer('id_users')->nullable();
             $table->integer('id_empresa')->nullable();
             $table->boolean('validado')->default(false);
+            $table->boolean('public')->default(true);
             $table->string('titulo')->nullable();
             $table->string('descripcion')->nullable();
             $table->integer('id_categoria')->nullable();
