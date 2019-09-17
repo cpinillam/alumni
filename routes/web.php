@@ -12,8 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); //nuevaOferta
 });
-
-Route::resource('/ofertastrabajo', 'OfertasTrabajoController');
+Route::resource('/OfertaTrabajo','OfertasTrabajoController');
 
