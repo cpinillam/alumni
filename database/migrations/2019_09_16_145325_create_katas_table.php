@@ -17,7 +17,8 @@ class CreateKatasTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('description');
-            $table->string('link');
+            $table->string('username');
+            $table->string('repository');
             $table->timestamps();
             
         });

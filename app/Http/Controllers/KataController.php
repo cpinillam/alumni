@@ -14,37 +14,23 @@ class KataController extends Controller
      */
     public function index()
     {
-        //
+        $kataList = Kata::all();
+        return view('kata', ['kataList' => $kataList]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        //
+        return view('Kata.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        Kata::create($request->all()); 
+        return redirect('kata/create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Kata  $kata
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Kata $kata)
+        public function show(Kata $kata)
     {
         //
     }
