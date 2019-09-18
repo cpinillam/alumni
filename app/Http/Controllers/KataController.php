@@ -18,7 +18,7 @@ class KataController extends Controller
         return view('kata', ['kataList' => $kataList]);
     }
 
-    
+
     public function create()
     {
         return view('Kata.create');
@@ -26,11 +26,11 @@ class KataController extends Controller
 
     public function store(Request $request)
     {
-        Kata::create($request->all()); 
+        Kata::create($request->all());
         return redirect('kata/create');
     }
 
-        public function show(Kata $kata)
+    public function show(Kata $kata)
     {
         //
     }
@@ -41,9 +41,10 @@ class KataController extends Controller
      * @param  \App\Kata  $kata
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kata $kata)
+    public function edit($katum)
     {
-        //
+        $kata = Kata::where('id', $katum)->get();
+        return view('kata/edit',  ['kata' => $kata]);
     }
 
     /**

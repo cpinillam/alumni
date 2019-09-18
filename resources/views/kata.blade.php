@@ -13,15 +13,17 @@
     <th>Nombre de kata</th>
     <th>Descripción</th>
     <th>Usuario GitHub</th>
+    <th>Repositorio GitHub</th>
 </tr>
 <?php
     foreach ($kataList as $value) {
 ?>
-
 <tr>
-        <td><?php echo $value->name ?></td>
+        <td><a href="/kata/<?php echo $value->id ?>/edit"> <?php echo $value->name ?> </a> </td>
         <td><?php echo $value->description ?></td>
         <td><?php echo $value->username ?></td>
+        <td><?php echo $value->repository ?></td>
+
 </tr>
     
 <?php
