@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\OfertasTrabajo;
+use App\Languages;
 use Illuminate\Http\Request;
 
-class OfertasTrabajoController extends Controller
+class LanguagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,6 @@ class OfertasTrabajoController extends Controller
     public function index()
     {
         //
-        $ofertaTrabajo = OfertasTrabajo::all();
-
-        return view('nuevaOferta',['ofertas'=>$ofertaTrabajo]);
-
     }
 
     /**
@@ -28,7 +24,7 @@ class OfertasTrabajoController extends Controller
      */
     public function create()
     {
-        return view('formularioOfertaTrabajo');
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class OfertasTrabajoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\OfertasTrabajo  $ofertasTrabajo
+     * @param  \App\Languages  $languages
      * @return \Illuminate\Http\Response
      */
-    public function show(OfertasTrabajo $ofertasTrabajo)
+    public function show(Languages $languages)
     {
         //
     }
@@ -56,10 +52,10 @@ class OfertasTrabajoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\OfertasTrabajo  $ofertasTrabajo
+     * @param  \App\Languages  $languages
      * @return \Illuminate\Http\Response
      */
-    public function edit(OfertasTrabajo $ofertasTrabajo)
+    public function edit(Languages $languages)
     {
         //
     }
@@ -68,10 +64,10 @@ class OfertasTrabajoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\OfertasTrabajo  $ofertasTrabajo
+     * @param  \App\Languages  $languages
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OfertasTrabajo $ofertasTrabajo)
+    public function update(Request $request, Languages $languages)
     {
         //
     }
@@ -79,10 +75,10 @@ class OfertasTrabajoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\OfertasTrabajo  $ofertasTrabajo
+     * @param  \App\Languages  $languages
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OfertasTrabajo $ofertasTrabajo)
+    public function destroy(Languages $languages)
     {
         //
     }
