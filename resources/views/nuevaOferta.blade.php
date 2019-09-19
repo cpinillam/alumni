@@ -13,7 +13,9 @@
 
 <body>
     <div class="flex-center position-ref full-height card">
-       
+
+        <a href="/formulario-oferta">Añadir</a>
+   
                 <ol>
                     @foreach($ofertas as $oferta)
                     <li>

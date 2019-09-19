@@ -7,17 +7,20 @@ use Illuminate\Http\Request;
 
 class OfertasTrabajoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        //
+        
         $ofertaTrabajo = OfertasTrabajo::all();
 
+       //To Do politica acceso Laravel 
+       $coder=false;
+         if(!$coder){            
+             return view('superAdmin',['ofertas'=>$ofertaTrabajo]);
+         }        
         return view('nuevaOferta',['ofertas'=>$ofertaTrabajo]);
+
+
 
     }
 
@@ -74,6 +77,8 @@ class OfertasTrabajoController extends Controller
     public function update(Request $request, OfertasTrabajo $ofertasTrabajo)
     {
         //
+        
+        $ofertasTrabajo->update($request->all());
     }
 
     /**
