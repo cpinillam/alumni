@@ -14,10 +14,10 @@ class OfertasTrabajoController extends Controller
      */
     public function index()
     {
-        //
+       
         $ofertaTrabajo = OfertasTrabajo::all();
 
-        return view('nuevaOferta',['ofertas'=>$ofertaTrabajo]);
+        return view('ofertastrabajo',['ofertastrabajo'=>$ofertaTrabajo]);
 
     }
 
@@ -28,7 +28,7 @@ class OfertasTrabajoController extends Controller
      */
     public function create()
     {
-        //
+       /*  return view('formularioOfertaTrabajo'); */
     }
 
     /**
@@ -38,8 +38,31 @@ class OfertasTrabajoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        
+        /* return redirect('ofertas-trabajo'); */
+       
+      
+       
+    $data = $request->validate([
+            'titulo'=> 'required',
+            'descripcion'=> 'required',
+            'url'=> 'required'
+
+        ]); 
+
+       
+
+      $oferta = new OfertasTrabajo();
+        $oferta->titulo = $request->titulo;
+        $oferta->descripcion = $request->descripcion;
+        $oferta->url = $request->url;
+        
+
+        $oferta->save();
+       
+
+        return redirect('ofertas-trabajo'); 
     }
 
     /**
