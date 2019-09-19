@@ -13,10 +13,10 @@ class CreateOfertasTrabajosTable extends Migration
      */
     public function up()
     {
-        Schema::create('ofertas_trabajos', function (Blueprint $table) {
+        Schema::create('job-offers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('id_users')->nullable();
-            $table->integer('id_empresa')->nullable();
+            $table->integer('id_companies')->nullable();
             $table->boolean('validado')->default(false);
             $table->boolean('public')->default(true);
             $table->string('titulo')->nullable();

@@ -68,14 +68,17 @@
 
             <div class="content">
 
-            @foreach ($ofertastrabajo as ofertatrabajo)
+            @foreach ($ofertastrabajo as $ofertatrabajo)
             <div>
-                titulo: {{ $ofertatrabajo->titulo }}
+                titulo: {{ $ofertatrabajo->titulo }}<br>
+                titulo: {{ $ofertatrabajo->descripcion }}<br>
+                titulo: {{ $ofertatrabajo->url }}<br><br><br><br>
+
                
             </div>
             @endforeach
 
-
+            <a href=/nueva-oferta>+ crear oferta de trabajo +</a>
                
             </div>
         </div>

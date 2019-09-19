@@ -72,27 +72,49 @@
 
 <body>
     <div class="flex-center position-ref full-height">
-       
-                <ol>
-                    @foreach($ofertas as $oferta)
-                    <li>
-                        <ol>
-                            <li>
-                                titulo: {{$oferta->titulo}}
-                            </li>
-                            <li>
-                                descripcion: {{$oferta->descripcion}}
-                            </li>
-                            <li>
-                                URL: {{$oferta->url}}
-                            </li>
-                        </ol>
-                    </li>
-                    <br/>
-                    <br/>
-                    @endforeach
-                </ol>
-        
+    <div >
+                    @if ($errors->any())
+                        <p>Complete todos los campos</p>
+                    @endif
+                    <form action='ofertas-trabajo' method='POST'>
+                        {{ csrf_field() }}
+
+                        <p> Formulario</p>
+
+                        
+                                <input type='text' placeholder='Titulo' name='titulo' required><br>
+                                <input type='text' placeholder='Descripción' name='descripcion' required><br>
+
+                                <p>Categoria</p>
+                             
+
+                                @include ('_categories')
+
+                                <p>lenguajes</p>
+                             
+
+                                @include ('_languages')
+                                
+
+                                <br><br>
+                                <input type='text' placeholder='Url' name='url' required><br>
+                                
+                                
+                          
+                            <input type='submit' value='Enviar oferta' class="btn buttonmain ml-auto">
+                        
+                       
+                    </form>
+                
+                    </div>
+
+
+
+
+
+
+
+
     </div>
     
 </body>
