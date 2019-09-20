@@ -56,7 +56,9 @@ class KataController extends Controller
      */
     public function update(Request $request, Kata $kata)
     {
-        //
+        $kata->update($request->all());
+        //dd($request);
+        return view('kata', ['kata' => $kata]);
     }
 
     /**

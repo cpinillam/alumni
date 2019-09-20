@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::resource ('kata', 'KataController');
 Route::get('kata/{katum}/edit','KataController@edit');
+

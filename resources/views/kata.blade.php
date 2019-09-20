@@ -16,16 +16,15 @@
     <th>Repositorio GitHub</th>
 </tr>
 <?php
-    foreach ($kataList as $value) {
+    foreach ($kataList as $kata) {
 ?>
 <tr>
-        <td><a href="/kata/<?php echo $value->id ?>/edit"> <?php echo $value->name ?> </a> </td>
-        <td><?php echo $value->description ?></td>
-        <td><?php echo $value->username ?></td>
-        <td><?php echo $value->repository ?></td>
-
+        <td><a href="/kata/{{$kata->id}}/edit">{{$kata->name}}</a> </td>
+        <td>{{$kata->description}}</td>
+        <td>{{$kata->username}}</td>
+        <td>{{$kata->repository}}</td>
 </tr>
-    
+
 <?php
     }
 ?>

@@ -9,6 +9,9 @@
 </head>
 
 <body>
+<form action='/kata/{{$kata->id}}' method="POST">
+    @csrf
+    @method ('PUT')
     <table>
         <th> Kata a editar</th>
         <tr>
@@ -17,30 +20,24 @@
             <th>Usuario GitHub</th>
             <th>Repositorio GitHub</th>
         </tr>
-        <?php
-        foreach ($kata as $value) {
-            ?>
-            <tr>
+        <tr>
                 <td>
-                    <input type="text" name="" id="" value="<?php echo $value->name ?>">
+                    <input type="text" name="" id="" value="{{$kata->name}}">
                 </td>
                 <td>
-                    <input type="text" name="" id="" value="<?php echo $value->description ?>">
+                    <input type="text" name="" id="" value="{{$kata->description}}">
                 </td>
                 <td>
-                    <input type="text" name="" id="" value="<?php echo $value->username ?>">
+                    <input type="text" name="" id="" value="{{$kata->username}}">
                 </td>
                 <td>
-                    <input type="text" name="" id="" value="<?php echo $value->repository ?>">
+                    <input type="text" name="" id="" value="{{$kata->repository}}">
                 </td>
-
             </tr>
-
-        <?php
-        }
-        ?>
     </table>
-    <input type=submit value="Actualizar"> 
+        <input type=submit value="Actualizar">
+    </form>
+
 
 </body>
 
