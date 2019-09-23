@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=Ç, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
@@ -23,13 +23,22 @@
                                 URL: {{$oferta->url}}
                             </li>
                             <li>
-                                <form action="/oferta-trabajo/{oferta_trabajo->id}" method="POST">
+                                <form action="/oferta-trabajo/{{$oferta->id}}" method="POST">
                                     @csrf
                                     @method('patch')
 
                                  
-                                 <input type="submit" value="update">
+                                 <input type="submit" value="validar">
                                 </form>   
+                            </li>
+                            <li>
+                                    <form method="POST" action="/oferta-trabajo/{{$oferta->id}}">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <input type="submit" value="borrar">
+
+                                </form>
                             </li>
                             
                         </ol>

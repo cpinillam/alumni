@@ -87,8 +87,12 @@ class OfertasTrabajoController extends Controller
      * @param  \App\OfertasTrabajo  $ofertasTrabajo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OfertasTrabajo $ofertasTrabajo)
-    {
-        //
+    public function destroy(OfertasTrabajo $ofertasTrabajo,$id)
+    {   
+        $ofertaTrabajos = OfertasTrabajo::destroy($id);
+        /* To Do 
+        dd($ofertasTrabajo);
+        $ofertasTrabajo->delete(); */
+        return redirect('oferta-trabajo');
     }
 }
