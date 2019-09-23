@@ -23,3 +23,7 @@ Route::get('/formulario-oferta', function () {
 });
 Route::get('/super-admin', 'OfertasTrabajoController@index');
 
+
+ Route::get('/nueva-oferta', function () {
+    return view('nuevaOferta');
+ });

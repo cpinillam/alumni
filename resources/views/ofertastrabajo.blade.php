@@ -64,20 +64,35 @@
         </style>
     </head>
     <body>
-        
 
-            <div class="content">
+        <div class="flex-center position-ref full-height card">
+       
+       <ol>
+           @foreach($ofertastrabajo as $oferta)
+           <li>
+               <ol class="colorOl">
+                   <li>
+                       titulo: {{$oferta->titulo}}
+                   </li>
+                   <li>
+                       descripcion: {{$oferta->descripcion}}
+                   </li>
+                   <li>
+                       URL: {{$oferta->url}}
+                   </li>
+               </ol>
+           </li>
+          
+           @endforeach
+           <li><br><a href=/nueva-oferta>+ crear oferta de trabajo +</a>
+           </li>
+       </ol>
+       
 
-            @foreach ($ofertastrabajo as ofertatrabajo)
-            <div>
-                titulo: {{ $ofertatrabajo->titulo }}
-               
-            </div>
-            @endforeach
+</div>
+ 
 
 
-               
-            </div>
-        </div>
+
     </body>
 </html>
