@@ -27,7 +27,7 @@
                                     @csrf
                                     @method('patch')
 
-                                 <input type="checkbox" onclick="" name="validado" value="1" <?php if ($oferta->validado == 1) {echo "checked";}?>>
+                                 
                                  <input type="submit" value="update">
                                 </form>   
                             </li>
