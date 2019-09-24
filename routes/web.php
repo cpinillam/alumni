@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/kata', 'KataController@index')->name('home');
+Route::get('/kata/create', 'KataController@create');
+Auth::routes();
+
 Route::resource ('kata', 'KataController');
+
 Route::get('kata/{katum}/edit','KataController@edit');
 

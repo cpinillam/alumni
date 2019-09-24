@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
 
-<body>
-<table> <th> Lista de katas</th>
-<tr>
-    <th>Nombre de kata</th>
-    <th>Descripción</th>
-    <th>Usuario GitHub</th>
-    <th>Repositorio GitHub</th>
-</tr>
-<?php
-    foreach ($kataList as $kata) {
-?>
-<tr>
-        <td><a href="/kata/{{$kata->id}}/edit">{{$kata->name}}</a> </td>
-        <td>{{$kata->description}}</td>
-        <td>{{$kata->username}}</td>
-        <td>{{$kata->repository}}</td>
-</tr>
-
-<?php
-    }
-?>
- </table>  
-</body>
-</html>
+    <div>
+        <table> 
+            <th> <h2>Lista de katas</h2></th>
+                <tr>
+                    <th>Nombre de kata</th>
+                    <th>Descripción</th>
+                    <th>Usuario GitHub</th>
+                    <th>Repositorio GitHub</th>
+                </tr>
+            @foreach ($katas as $kata)
+                <tr>
+                    {{ csrf_field() }}
+                    <td><a href="/kata/{{$kata->id}}/edit">{{$kata->name}}</a> </td>
+                    <td>{{$kata->description}}</td>
+                    <td>{{$kata->username}}</td>
+                    <td>{{$kata->repository}}</td>
+                </tr>
+            @endforeach
+        </table>
+        <div class="row justify-content-center">
+            <a href="/kata/create" class="btn btn-primary ml-auto">Crear Nueva Kata</a>
+        </div>
+    </div>

@@ -7,27 +7,22 @@ use Illuminate\Http\Request;
 
 class KataController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $kataList = Kata::all();
-        return view('kata', ['kataList' => $kataList]);
+        $kata = Kata::all();
+        return view('/kata', ['katas' => $kata]);
     }
-
 
     public function create()
     {
-        return view('Kata.create');
+        $kata = new Kata();
+        return view('Kata.create', ['kata' => $kata]);
     }
 
     public function store(Request $request)
     {
         Kata::create($request->all());
-        return redirect('kata/create');
+        return redirect('/kata/create');
     }
 
     public function show(Kata $kata)
@@ -35,38 +30,21 @@ class KataController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Kata  $kata
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($katum)
+    public function edit(Kata $katum)
     {
-        $kata = Kata::where('id', $katum)->get();
-        return view('kata/edit',  ['kata' => $kata]);
+        return view('Kata.edit',  ['kata' => $katum]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Kata  $kata
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Kata $kata)
+    public function update(Request $request, Kata $kata, $id)
     {
-        $kata->update($request->all());
-        //dd($request);
-        return view('kata', ['kata' => $kata]);
+        $data = $request->all();
+        $kata = Kata::find($id);
+        $kata->fill($data);
+
+        $kata->save();
+        return redirect('kata');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Kata  $kata
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Kata $kata)
     {
         //

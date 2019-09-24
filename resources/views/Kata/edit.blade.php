@@ -1,44 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-<form action='/kata/{{$kata->id}}' method="POST">
-    @csrf
-    @method ('PUT')
-    <table>
-        <th> Kata a editar</th>
-        <tr>
-            <th>Nombre de kata</th>
-            <th>Descripción</th>
-            <th>Usuario GitHub</th>
-            <th>Repositorio GitHub</th>
-        </tr>
-        <tr>
-                <td>
-                    <input type="text" name="" id="" value="{{$kata->name}}">
-                </td>
-                <td>
-                    <input type="text" name="" id="" value="{{$kata->description}}">
-                </td>
-                <td>
-                    <input type="text" name="" id="" value="{{$kata->username}}">
-                </td>
-                <td>
-                    <input type="text" name="" id="" value="{{$kata->repository}}">
-                </td>
-            </tr>
-    </table>
-        <input type=submit value="Actualizar">
-    </form>
 
 
-</body>
-
-</html>
+<div>
+        <form action='/kata/{{$kata->id}}' method='POST' >
+            @csrf
+            @method ('PATCH')
+            {{ csrf_field() }}
+            <label>Nombre de la kata</label>
+            <input type="text" name="name" value="{{$kata->name}}">
+            <br>
+            <label>Descripción de la kata</label>
+            <input type="text" name="description" value="{{$kata->description}}">
+            <br>
+            <label>Usuario de Github</label>
+            <input type="text" name="username" value="{{$kata->username}}">
+            <br>
+            <select name="repository" >
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+            <br>
+            <input type="submit" value="Confirmar" class="btn btn-success">
+            <a href="/kata" class="btn btn-primary ml-auto">Listado de Katas</a>
+        </form>
+    </div>
