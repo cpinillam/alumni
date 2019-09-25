@@ -24,6 +24,7 @@
                             </li>
                             <li>
                                 <form action="/oferta-trabajo/{{$oferta->id}}" method="POST">
+                                    
                                     @csrf
                                     @method('PUT')
                                     
