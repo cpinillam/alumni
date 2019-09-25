@@ -16,12 +16,12 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id')->unique();
             $table->timestamps();
-            $table->string('is_resolved');
-            $table->string('deleted');
+            $table->string('is_resolved')->default('false');
+            $table->string('deleted')->default('false');
             $table->string('title');
-            $table->string('body');
-            $table->string('has_answer');
-            $table->string('has_project');
+            $table->string('body', 600);
+            $table->string('has_answer')->default('false');
+            $table->string('has_project')->default('false');
         });
     }
 
