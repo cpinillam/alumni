@@ -14,14 +14,14 @@
 Route::get('/', function () {
     return view('welcome'); //nuevaOferta
 }); 
-Route::resource('/ofertastrabajo','OfertasTrabajoController');
+Route::resource('/joboffers','JobOffersController');
 
 
 
 Route::get('/formulario-oferta', function () {
     return view('ofertaFormulario'); 
 });
-Route::get('/super-admin', 'OfertasTrabajoController@index');
+Route::get('/super-admin', 'JobOffersController@index');
 
 
  Route::get('/nueva-oferta', function () {

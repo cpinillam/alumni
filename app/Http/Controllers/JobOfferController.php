@@ -23,7 +23,7 @@ class JobOfferController extends Controller
          if(!$coder){            
              return view('superAdmin',['offers'=>$jobOffers]);
          }        
-        return view('ofertastrabajo',['offers'=>$jobOffers]);
+        return view('jobOffers',['offers'=>$jobOffers]);
     }
 
     /**
@@ -44,7 +44,25 @@ class JobOfferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title'=> 'required',
+            'description'=> 'required',
+            'url'=> 'required'
+
+        ]); 
+
+       
+
+        $offer = new JobOffer();
+        $offer->title = $request->title;
+        $offer->description = $request->description;
+        $offer->url = $request->url;
+        
+
+        $offer->save();
+       
+
+        return redirect('joboffers'); 
     }
 
     /**
@@ -55,7 +73,9 @@ class JobOfferController extends Controller
      */
     public function show(JobOffer $jobOffer)
     {
-        //
+         
+        $offers = JobOffer::find($id);
+        return view('offer-detail', ['offer'=>$offers]);
     }
 
     /**
@@ -78,7 +98,10 @@ class JobOfferController extends Controller
      */
     public function update(Request $request, JobOffer $jobOffer)
     {
-        //
+        $jobOfferToUpdate = JobOffer::find($id);
+        $jobOfferToUpdate->validate = $request->validate; 
+        $jobOfferToUpdate->save();
+        return redirect('joboffers');
     }
 
     /**
@@ -89,6 +112,7 @@ class JobOfferController extends Controller
      */
     public function destroy(JobOffer $jobOffer)
     {
-        //
+        $jobOffer->delete(); 
+        return redirect(route('joboffer.index'));
     }
 }
