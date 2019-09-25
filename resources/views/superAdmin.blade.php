@@ -25,7 +25,7 @@
                             <li>
                                 <form action="/oferta-trabajo/{{$oferta->id}}" method="POST">
                                     @csrf
-                                    @method('patch')
+                                    @method('PUT')
                                     
                                     @if(!$oferta->validado)
                                         <button type="submit" name="validado" value="1">VALIDADO->1</button>

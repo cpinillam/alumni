@@ -11,9 +11,9 @@
 |
 */
 
-/* Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome'); //nuevaOferta
-}); */
+}); 
 Route::resource('/oferta-trabajo','OfertasTrabajoController');
 
 
@@ -23,3 +23,7 @@ Route::get('/formulario-oferta', function () {
 });
 Route::get('/super-admin', 'OfertasTrabajoController@index');
 
+
+ Route::get('/nueva-oferta', function () {
+    return view('nuevaOferta');
+ });

@@ -11,14 +11,14 @@ class OfertasTrabajoController extends Controller
     public function index()
     {
         
-        $ofertaTrabajo = OfertasTrabajo::all();
+        $ofertasTrabajo = OfertasTrabajo::all();
 
        //To Do politica acceso Laravel 
        $coder=false;
          if(!$coder){            
-             return view('superAdmin',['ofertas'=>$ofertaTrabajo]);
+             return view('superAdmin',['ofertas'=>$ofertasTrabajo]);
          }        
-        return view('nuevaOferta',['ofertas'=>$ofertaTrabajo]);
+        return view('ofertastrabajo',['ofertas'=>$ofertasTrabajo]);
 
 
 
@@ -31,7 +31,7 @@ class OfertasTrabajoController extends Controller
      */
     public function create()
     {
-        //
+       /*  return view('formularioOfertaTrabajo'); */
     }
 
     /**
@@ -41,8 +41,31 @@ class OfertasTrabajoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        
+        /* return redirect('ofertas-trabajo'); */
+       
+      
+       
+    $data = $request->validate([
+            'titulo'=> 'required',
+            'descripcion'=> 'required',
+            'url'=> 'required'
+
+        ]); 
+
+       
+
+      $oferta = new OfertasTrabajo();
+        $oferta->titulo = $request->titulo;
+        $oferta->descripcion = $request->descripcion;
+        $oferta->url = $request->url;
+        
+
+        $oferta->save();
+       
+
+        return redirect('oferta-trabajo'); 
     }
 
     /**
@@ -90,7 +113,7 @@ class OfertasTrabajoController extends Controller
      * @param  \App\OfertasTrabajo  $ofertasTrabajo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OfertasTrabajo $ofertasTrabajo,$id)
+    public function destroy(OfertasTrabajo $ofertasphpTrabajo,$id)
     {   
         $ofertaTrabajos = OfertasTrabajo::destroy($id);
         /* To Do 
