@@ -12,10 +12,11 @@ class OfertasTrabajoController extends Controller
     {
         
         $ofertasTrabajo = OfertasTrabajo::all();
+        
 
        //To Do politica acceso Laravel 
        $coder=false;
-         if(!$coder){            
+         if($coder){            
              return view('superAdmin',['ofertas'=>$ofertasTrabajo]);
          }        
         return view('ofertastrabajo',['ofertas'=>$ofertasTrabajo]);
