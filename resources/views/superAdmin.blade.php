@@ -26,15 +26,20 @@
                                 <form action="/oferta-trabajo/{{$oferta->id}}" method="POST">
                                     @csrf
                                     @method('patch')
-
+                                    
+                                    @if(!$oferta->validado)
+                                        <button type="submit" name="validado" value="1">VALIDADO->1</button>
+                                    @endif
+                                    @if($oferta->validado)
+                                    <button type="submit" name="validado" value="0">NO VALIDAR->0</button>
+                                    @endif
                                  
-                                 <input type="submit" value="validar">
                                 </form>   
                             </li>
                             <li>
                                     <form method="POST" action="/oferta-trabajo/{{$oferta->id}}">
                                     @csrf
-                                    @method('DELETE')
+                                    @method('delete')
 
                                     <input type="submit" value="borrar">
 

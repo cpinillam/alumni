@@ -74,11 +74,14 @@ class OfertasTrabajoController extends Controller
      * @param  \App\OfertasTrabajo  $ofertasTrabajo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OfertasTrabajo $ofertasTrabajo)
+    public function update(Request $request, OfertasTrabajo $ofertasTrabajo,$id)
     {
-        //
-        
-        $ofertasTrabajo->update($request->all());
+       // dd($request->validado);
+       //To Do
+        $notaActualizar = OfertasTrabajo::find($id);
+        $notaActualizar->validado = $request->validado; 
+        $notaActualizar->save();
+        return redirect('oferta-trabajo');
     }
 
     /**
