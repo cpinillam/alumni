@@ -25,7 +25,7 @@
                             <li>
                                 <form action="/oferta-trabajo/{{$oferta->id}}" method="POST">
                                     @csrf
-                                    @method('patch')
+                                    @method('PUT')
 
                                  
                                  <input type="submit" value="validar">

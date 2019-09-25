@@ -13,7 +13,7 @@
                    @if ($errors->any())
                        <p>Complete todos los campos</p>
                    @endif
-                   <form action='ofertas-trabajo' method='POST'>
+                   <form action='oferta-trabajo' method='POST'>
                        {{ csrf_field() }}
                        <p> Formulario</p>
                                <input type='text' placeholder='Titulo' name='titulo' required><br>

@@ -11,14 +11,14 @@ class OfertasTrabajoController extends Controller
     public function index()
     {
         
-        $ofertaTrabajo = OfertasTrabajo::all();
+        $ofertasTrabajo = OfertasTrabajo::all();
 
        //To Do politica acceso Laravel 
        $coder=false;
-         if($coder){            
-             return view('superAdmin',['ofertas'=>$ofertaTrabajo]);
+         if(!$coder){            
+             return view('superAdmin',['ofertas'=>$ofertasTrabajo]);
          }        
-        return view('nuevaOferta',['ofertas'=>$ofertaTrabajo]);
+        return view('ofertastrabajo',['ofertas'=>$ofertasTrabajo]);
 
 
 
@@ -65,7 +65,7 @@ class OfertasTrabajoController extends Controller
         $oferta->save();
        
 
-        return redirect('ofertas-trabajo'); 
+        return redirect('oferta-trabajo'); 
     }
 
     /**
@@ -110,7 +110,7 @@ class OfertasTrabajoController extends Controller
      * @param  \App\OfertasTrabajo  $ofertasTrabajo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OfertasTrabajo $ofertasTrabajo,$id)
+    public function destroy(OfertasTrabajo $ofertasphpTrabajo,$id)
     {   
         $ofertaTrabajos = OfertasTrabajo::destroy($id);
         /* To Do 
