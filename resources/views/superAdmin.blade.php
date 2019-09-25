@@ -38,7 +38,7 @@
                                 </form>   
                             </li>
                             <li>
-                                    <form method="POST" action="/oferta-trabajo/{{$oferta->id}}">
+                                    <form method="POST" action="{{route('ofertastrabajo.destroy',$oferta->id)}}">
                                     @csrf
                                     @method('delete')
 
