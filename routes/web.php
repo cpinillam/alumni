@@ -23,3 +23,7 @@ Route::resource('/OfertaTrabajo', 'OfertasTrabajoController');
 Route::get('/createquestion', function () {
     return view('faq/createQuestion');
 });
+
+Route::get('/readquestion', function () {
+    return view('faq/readQuestion');
+});

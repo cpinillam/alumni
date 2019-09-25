@@ -13,11 +13,6 @@
 </head>
 
 <body>
-    <form action="" method="post">
-        <input type="title" placeholder="title">
-        <input type="text" placeholder="text">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
