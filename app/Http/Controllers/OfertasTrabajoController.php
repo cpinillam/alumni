@@ -7,17 +7,20 @@ use Illuminate\Http\Request;
 
 class OfertasTrabajoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-       
-        $ofertaTrabajo = OfertasTrabajo::all();
+        
+        $ofertasTrabajo = OfertasTrabajo::all();
 
-        return view('ofertastrabajo',['ofertastrabajo'=>$ofertaTrabajo]);
+       //To Do politica acceso Laravel 
+       $coder=false;
+         if(!$coder){            
+             return view('superAdmin',['ofertas'=>$ofertasTrabajo]);
+         }        
+        return view('ofertastrabajo',['ofertas'=>$ofertasTrabajo]);
+
+
 
     }
 
@@ -62,7 +65,7 @@ class OfertasTrabajoController extends Controller
         $oferta->save();
        
 
-        return redirect('ofertas-trabajo'); 
+        return redirect('oferta-trabajo'); 
     }
 
     /**
@@ -94,9 +97,14 @@ class OfertasTrabajoController extends Controller
      * @param  \App\OfertasTrabajo  $ofertasTrabajo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OfertasTrabajo $ofertasTrabajo)
+    public function update(Request $request, OfertasTrabajo $ofertasTrabajo,$id)
     {
-        //
+       // dd($request->validado);
+       //To Do
+        $notaActualizar = OfertasTrabajo::find($id);
+        $notaActualizar->validado = $request->validado; 
+        $notaActualizar->save();
+        return redirect('oferta-trabajo');
     }
 
     /**
@@ -105,8 +113,12 @@ class OfertasTrabajoController extends Controller
      * @param  \App\OfertasTrabajo  $ofertasTrabajo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OfertasTrabajo $ofertasTrabajo)
-    {
-        //
+    public function destroy(OfertasTrabajo $ofertasphpTrabajo,$id)
+    {   
+        $ofertaTrabajos = OfertasTrabajo::destroy($id);
+        /* To Do 
+        dd($ofertasTrabajo);
+        $ofertasTrabajo->delete(); */
+        return redirect('oferta-trabajo');
     }
 }
