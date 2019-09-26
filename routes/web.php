@@ -12,8 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome'); //nuevaOferta
+    return view('faq.createQuestion');
 });
+
+// Route::post('post/{user}',  [
+//     'as' => 'post.store',
+//     'uses' => 'postcontroller@store'
+// ]);
+
+
+
 
 Route::resource('/createquestion', 'Postcontroller');
 
@@ -23,3 +31,7 @@ Route::resource('/OfertaTrabajo', 'OfertasTrabajoController');
 Route::get('/createquestion', function () {
     return view('faq/createQuestion');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
