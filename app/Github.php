@@ -31,29 +31,4 @@ class Github extends Model
         // dd($this->repositories);
         return $this->repositories;
     }
-
-    
-
-    // function getRepositoryList()
-    // {
-    //     $client = new \Github\Client();
-    //     $repository = $client->api('user')->repositories($this->username);
-    //     $decodedRepo = json_decode($repository);
-
-    //     return $decodedRepo;
-    // }
-
-    // public function getGuzzleRequest()
-    // {   
-    //     $username = 'colmanfranco';
-    //     $client = new \GuzzleHttp\Client();
-    //     $request = $client->get('https://api.github.com/users/'.$username.'/repos');
-    //     $body = $request->getBody();
-    //     $response = json_decode($body, TRUE);
-    //      dd($response);
-
-    //     return $response;
-    // }
-
-    
 }
