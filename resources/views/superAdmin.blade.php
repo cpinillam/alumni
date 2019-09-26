@@ -10,35 +10,37 @@
 
     
     <ol>
-                    @foreach($ofertas as $oferta)
+                    @foreach($joboffer as $offer)
+                   
+                    
                     <li>
                         <ol class="colorOl">
                             <li>
-                                titulo: {{$oferta->titulo}}
+                                titulo: {{$offer->title}}
                             </li>
                             <li>
-                                descripcion: {{$oferta->descripcion}}
+                                descripcion: {{$offer->description}}
                             </li>
                             <li>
-                                URL: {{$oferta->url}}
+                                URL: {{$offer->url}}
                             </li>
                             <li>
-                                <form action="/oferta-trabajo/{{$oferta->id}}" method="POST">
+                                <form action="/joboffers/{{$offer->id}}" method="POST">
                                     
                                     @csrf
                                     @method('PUT')
                                     
-                                    @if(!$oferta->validado)
-                                        <button type="submit" name="validado" value="1">VALIDADO->1</button>
+                                    @if(!$offer->validate)
+                                        <button type="submit" name="validate" value="1">VALIDADO->1</button>
                                     @endif
-                                    @if($oferta->validado)
-                                    <button type="submit" name="validado" value="0">NO VALIDAR->0</button>
+                                    @if($offer->validate)
+                                    <button type="submit" name="validate" value="0">NO VALIDAR->0</button>
                                     @endif
                                  
                                 </form>   
                             </li>
                             <li>
-                                    <form method="POST" action="{{route('ofertastrabajo.destroy',$oferta->id)}}">
+                                    <form method="POST" action="{{route('joboffers.destroy',$offer->id)}}">
                                     @csrf
                                     @method('delete')
 

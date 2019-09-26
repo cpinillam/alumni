@@ -15,6 +15,15 @@ class CreateJobOffersTable extends Migration
     {
         Schema::create('job_offers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('id_users')->nullable();
+            $table->integer('id_company')->nullable();
+            $table->boolean('validate')->default(false);
+            $table->boolean('public')->default(true);
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->integer('id_category')->nullable();
+            $table->integer('id_language')->nullable();
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }

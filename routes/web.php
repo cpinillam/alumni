@@ -14,16 +14,20 @@
 Route::get('/', function () {
     return view('welcome'); //nuevaOferta
 }); 
-Route::resource('/joboffers','JobOffersController');
+Route::resource('/joboffers','JobOfferController');
 
 
 
-Route::get('/formulario-oferta', function () {
-    return view('ofertaFormulario'); 
+Route::get('/job-offers-form', function () {
+    return view('jobOffersForm'); 
 });
-Route::get('/super-admin', 'JobOffersController@index');
-
-
- Route::get('/nueva-oferta', function () {
-    return view('nuevaOferta');
+Route::get('/super-admin', function () {
+    return view('superAdmin');
  });
+
+
+ Route::get('/new-job-offer', function () {
+    return view('newJobOffer');
+ });
+
+ 

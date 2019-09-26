@@ -13,12 +13,12 @@
                    @if ($errors->any())
                        <p>Complete todos los campos</p>
                    @endif
-                   <form action='oferta-trabajo' method='POST'>
+                   <form action='/joboffers' method='POST'>
                        {{ csrf_field() }}
                        <p> Formulario</p>
-                               <input type='text' placeholder='Titulo' name='titulo' required><br>
-                               <input type='text' placeholder='Descripción' name='descripcion' required><br>
-                               <p>Categoria</p>
+                               <input type='text' placeholder='Title' name='title' required><br>
+                               <input type='text' placeholder='Description' name='description' required><br>
+                               <p>Categories</p>
                                @include ('_categories')
                                <p>lenguajes</p>
                                @include ('_languages')

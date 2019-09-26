@@ -68,23 +68,24 @@
         <div class="flex-center position-ref full-height card">
        
             <ol>
-                @foreach($ofertas as $oferta)
+                @foreach($joboffer as $offer)
+                
                 <li>
                     <ol class="colorOl">
                         <li>
-                            titulo: {{$oferta->titulo}}
+                            Title: {{$offer->title}}
                         </li>
                         <li>
-                            descripcion: {{$oferta->descripcion}}
+                            Description: {{$offer->description}}
                         </li>
                         <li>
-                            URL: {{$oferta->url}}
+                            URL: {{$offer->url}}
                         </li>
                     </ol>
                 </li>
                 
                 @endforeach
-                <li><br><a href=/nueva-oferta>+ crear oferta de trabajo +</a>
+                <li><br><a href="/new-job-offer">+ Create new Job Offer +</a>
                 </li>
             </ol>
         </div>

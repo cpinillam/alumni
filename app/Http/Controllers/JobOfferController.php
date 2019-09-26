@@ -16,14 +16,14 @@ class JobOfferController extends Controller
     {
          
         $jobOffers = JobOffer::all();
-        
+       
 
        //To Do politica acceso Laravel 
        $coder=false;
          if(!$coder){            
-             return view('superAdmin',['offers'=>$jobOffers]);
+             return view('superAdmin',['joboffer'=>$jobOffers]);
          }        
-        return view('jobOffers',['offers'=>$jobOffers]);
+        return view('jobOffers',['joboffer'=>$jobOffers]);
     }
 
     /**
@@ -96,9 +96,9 @@ class JobOfferController extends Controller
      * @param  \App\JobOffer  $jobOffer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JobOffer $jobOffer)
+    public function update(Request $request, JobOffer $joboffer)
     {
-        $jobOfferToUpdate = JobOffer::find($id);
+        $jobOfferToUpdate = JobOffer::find($joboffer->id);
         $jobOfferToUpdate->validate = $request->validate; 
         $jobOfferToUpdate->save();
         return redirect('joboffers');
@@ -110,9 +110,9 @@ class JobOfferController extends Controller
      * @param  \App\JobOffer  $jobOffer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JobOffer $jobOffer)
+    public function destroy(JobOffer $joboffer)
     {
-        $jobOffer->delete(); 
-        return redirect(route('joboffer.index'));
+        $joboffer->delete(); 
+        return redirect('joboffers');
     }
 }
