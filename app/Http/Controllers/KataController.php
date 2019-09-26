@@ -40,9 +40,8 @@ class KataController extends Controller
         $data = $request->all();
         $kata = Kata::find($id);
         $kata->fill($data);
-
         $kata->save();
-        return redirect('kata');
+        return view('layouts.send',  ['kata' => $kata]);
     }
 
     public function destroy(Kata $kata, $id)
@@ -50,4 +49,11 @@ class KataController extends Controller
         $kata->destroy($id);
         return redirect('kata');
     }
+
+    public function kataSend (Request $request, $id)
+    {
+        $kata = Kata::find($id);
+        return view ('layouts.send',  ['kata' => $kata]);
+    }
+
 }

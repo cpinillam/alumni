@@ -2,12 +2,13 @@ $colorBackgroundHeader: #F293B3;
 $colorBackgroundMain: #393939;
 $colorFontHeader: #575757;
 $colorFontMain: #FFFFFF;
+$colorFontFormulary: #F293B3;
 $colorFontButton: #303030;
 $font:'Roboto', sans-serif;
 $fontFooter: 'Roboto Mono', monospace;
 
 * {
-    font-family: $font;
+    font-family: $font;   
     margin: 0;
     padding: 0;
     overflow-x: auto;
@@ -55,6 +56,11 @@ main {
     .formulario {
         vertical-align: middle;
         display: inline-grid;
+        width: 70%;
+        text-align: left;
+    }
+    .campos {
+        color: $colorFontFormulary;
         width: 70%;
         text-align: left;
     }

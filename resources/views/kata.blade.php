@@ -17,17 +17,22 @@
                     <td>{{$kata->description}}</td>
                     <td>{{$kata->username}}</td>
                     <td>{{$kata->repository}}</td>
-                    <td> <input type="button" value="Edit" formaction=""> </td>
+                    <td>
+                        <form method="get" action="/kata/{{$kata->id}}/edit">
+                            <input class="boton" type="submit" value="Editar">
+                        </form> 
+                    </td>
                     <td>
                         <form action="/kata/{{$kata->id}}" method="post">
                             @method('DELETE')
                             @csrf
-                        <button class="btn btn-default" type="submit">Delete</button>
+                        <button class="boton" type="submit">Eliminar</button>
                     </form></td>
                 </tr>
             @endforeach
         </table>
         <div class="row justify-content-center">
+                <br>
             <a href="/kata/create" class="boton">Crear Nueva Kata</a>
         </div>
     </div>

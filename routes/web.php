@@ -18,9 +18,10 @@ Route::get('/', function () {
 
 Route::get('/kata', 'KataController@index')->name('home');
 Route::get('/kata/create', 'KataController@create');
-Auth::routes();
+//Auth::routes();
 
 Route::resource ('kata', 'KataController');
 
 Route::get('kata/{katum}/edit','KataController@edit');
 Route::get('kata/{katum}','KataController@destroy');
+Route::get('/kataSend/{id}','KataController@kataSend');
