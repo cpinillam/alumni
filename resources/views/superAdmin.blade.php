@@ -22,7 +22,7 @@
                                 descripcion: {{$offer->description}}
                             </li>
                             <li>
-                                URL: {{$offer->url}}
+                                URLs: {{$offer->url}}
                             </li>
                             <li>
                                 <form action="/joboffers/{{$offer->id}}" method="POST">
