@@ -1,13 +1,15 @@
+@extends('layouts.header')
 
+@section('content')
     <div>
+        <h1>Lista de katas</h1>
         <table> 
-            <th> <h2>Lista de katas</h2></th>
-                <tr>
-                    <th>Nombre de kata</th>
-                    <th>Descripción</th>
-                    <th>Usuario GitHub</th>
-                    <th>Repositorio GitHub</th>
-                </tr>
+            <tr>
+                <th>Nombre de kata</th>
+                <th>Descripción</th>
+                <th>Usuario GitHub</th>
+                <th>Repositorio GitHub</th>
+            </tr>
             @foreach ($katas as $kata)
                 <tr>
                     {{ csrf_field() }}
@@ -19,6 +21,9 @@
             @endforeach
         </table>
         <div class="row justify-content-center">
-            <a href="/kata/create" class="btn btn-primary ml-auto">Crear Nueva Kata</a>
+            <a href="/kata/create" class="boton">Crear Nueva Kata</a>
         </div>
     </div>
+
+@endsection
+    
