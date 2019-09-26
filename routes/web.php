@@ -27,3 +27,7 @@ Route::get('/createquestion', function () {
 Route::get('/readquestion', function () {
     return view('faq/readQuestion');
 });
+
+Route::get('/uniquequestion', function () {
+    return view('faq/uniqueQuestion');
+});
