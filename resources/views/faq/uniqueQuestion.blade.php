@@ -1,3 +1,11 @@
+<?php
+
+$preguntas = array("Unai Tsundere", "Unai Yandere", "Unai Kawaii", "Unai Sugoi",);
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -13,15 +21,19 @@
 </head>
 
 <body>
-    <div class="form-group">
-        <label for=""> ASK YOUR QUESTION</label>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Question</h4>
+            <p class="card-text">Text</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+                    @foreach ($preguntas as $pregunta)
+                    <li class="list-group-item">{{"$pregunta"}}</li>
+                    @endforeach
+        </ul>
     </div>
-    <form action="/createquestion" method="POST">
-        @csrf
-        <input type="text" name="title" placeholder="title">
-        <input type="text" name="body" placeholder="body">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    @include('faq.createAnswer ')
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -37,3 +49,4 @@
 </body>
 
 </html>
+

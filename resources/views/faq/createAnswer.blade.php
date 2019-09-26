@@ -13,13 +13,9 @@
 </head>
 
 <body>
-    <div class="form-group">
-        <label for=""> ASK YOUR QUESTION</label>
-    </div>
-    <form action="/createquestion" method="POST">
-        @csrf
-        <input type="text" name="title" placeholder="title">
-        <input type="text" name="body" placeholder="body">
+    <h2>Responde</h2>
+    <form action="" method="post">
+        <input type="text" placeholder="text">
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
