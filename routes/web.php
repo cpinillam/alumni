@@ -23,4 +23,4 @@ Auth::routes();
 Route::resource ('kata', 'KataController');
 
 Route::get('kata/{katum}/edit','KataController@edit');
-
+Route::get('kata/{katum}','KataController@destroy');

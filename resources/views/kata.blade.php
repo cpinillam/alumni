@@ -15,6 +15,13 @@
                     <td>{{$kata->description}}</td>
                     <td>{{$kata->username}}</td>
                     <td>{{$kata->repository}}</td>
+                    <td> <input type="button" value="Edit" formaction=""> </td>
+                    <td>
+                        <form action="/kata/{{$kata->id}}" method="post">
+                            @method('DELETE')
+                            @csrf
+                        <button class="btn btn-default" type="submit">Delete</button>
+                    </form></td>
                 </tr>
             @endforeach
         </table>

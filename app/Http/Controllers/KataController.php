@@ -45,8 +45,9 @@ class KataController extends Controller
         return redirect('kata');
     }
 
-    public function destroy(Kata $kata)
+    public function destroy(Kata $kata, $id)
     {
-        //
+        $kata->destroy($id);
+        return redirect('kata');
     }
 }
