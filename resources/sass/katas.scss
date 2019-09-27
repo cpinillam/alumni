@@ -60,11 +60,15 @@ main {
     }
 }
 
+table {
+    display: inline-table;
+}
+
 
 footer {
     font-family: $fontFooter;
     background-color: #FDC539;
-    height: 60px;
+    padding: 30px;
     text-align: center;
 }
 
@@ -74,4 +78,17 @@ footer {
     background-color: $colorBackgroundHeader;
     text-decoration: none;
     text-align: center;
+}
+
+.botonLista{
+    width: 5em;
+    color: $colorFontButton;
+    background-color: $colorBackgroundHeader;
+    text-decoration: none;
+    text-align: center;
+}
+
+.botonCrear {
+    display: table;
+    padding: 30px;
 }

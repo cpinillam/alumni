@@ -51,10 +51,14 @@ main .formulario {
   text-align: left;
 }
 
+table {
+  display: inline-table;
+}
+
 footer {
   font-family: "Roboto Mono", monospace;
   background-color: #FDC539;
-  height: 60px;
+  padding: 30px;
   text-align: center;
 }
 
@@ -64,6 +68,19 @@ footer {
   background-color: #F293B3;
   text-decoration: none;
   text-align: center;
+}
+
+.botonLista {
+  width: 5em;
+  color: #303030;
+  background-color: #F293B3;
+  text-decoration: none;
+  text-align: center;
+}
+
+.botonCrear {
+  display: table;
+  padding: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */

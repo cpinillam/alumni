@@ -26,8 +26,10 @@
             <option value=""></option>
         </select>
         <br>
+        <div class="botones">
         <input class="boton" type="submit" value="Submit">
         <a href="/kata" type="submit" class="boton">Listado de Katas</a>
+        </div>
     </form>
 </div>
 

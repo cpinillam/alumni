@@ -13,22 +13,23 @@
             @foreach ($katas as $kata)
                 <tr>
                     {{ csrf_field() }}
-                    <td><a href="/kata/{{$kata->id}}/edit">{{$kata->name}}</a> </td>
+                    <td>{{$kata->name}}</td>
                     <td>{{$kata->description}}</td>
                     <td>{{$kata->username}}</td>
                     <td>{{$kata->repository}}</td>
-                    <td> <input type="button" value="Edit" formaction=""> </td>
+                    <td> <button href="/kata/{{$kata->id}}/edit" class="botonLista" type="button" value="Edit" >Edit</button>
                     <td>
                         <form action="/kata/{{$kata->id}}" method="post">
-                            @method('DELETE')
                             @csrf
-                        <button class="btn btn-default" type="submit">Delete</button>
-                    </form></td>
+                            @method('DELETE')
+                        <button class="botonLista" type="submit">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </table>
-        <div class="row justify-content-center">
-            <a href="/kata/create" class="boton">Crear Nueva Kata</a>
+        <div class="botonCrear">
+            <button href="/kata/create" class="boton">Crear Nueva Kata</button>
         </div>
     </div>
 
