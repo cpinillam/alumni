@@ -19,7 +19,7 @@
                     <td>{{$kata->repository}}</td>
                     <td>
                         <form method="get" action="/kata/{{$kata->id}}/edit">
-                            <input class="boton" type="submit" value="Editar">
+                            <input class="botonLista" type="submit" value="Editar">
                         </form> 
                     </td>
                     <td>
