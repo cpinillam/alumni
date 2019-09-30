@@ -28,7 +28,7 @@ class Github extends Model
         $response = file_get_contents($this->url. '/users/'.$username.'/repos', false, $context);
         $decodedResponse = json_decode( $response );
         $this->repositories = collect($decodedResponse);
-        // dd($this->repositories);
+        dd($this->repositories);
         return $this->repositories;
     }
 }

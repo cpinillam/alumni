@@ -31,6 +31,4 @@ class GithubTest extends TestCase
         $this->assertArraySubset(['items' => ['0', '1']], ['items' => ['0']]);
     }
 
-    
-
 }

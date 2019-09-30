@@ -17,7 +17,11 @@
                     <td>{{$kata->description}}</td>
                     <td>{{$kata->username}}</td>
                     <td>{{$kata->repository}}</td>
-                    <td> <button href="/kata/{{$kata->id}}/edit" class="botonLista" type="button" value="Edit" >Edit</button>
+                    <td>
+                        <form method="get" action="/kata/{{$kata->id}}/edit">
+                            <input class="boton" type="submit" value="Editar">
+                        </form> 
+                    </td>
                     <td>
                         <form action="/kata/{{$kata->id}}" method="post">
                             @csrf
@@ -28,8 +32,10 @@
                 </tr>
             @endforeach
         </table>
+        
         <div class="botonCrear">
-            <button href="/kata/create" class="boton">Crear Nueva Kata</button>
+                <br>
+            <a href="/kata/create" class="boton">Crear Nueva Kata</a>
         </div>
     </div>
 
