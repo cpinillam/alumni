@@ -10,10 +10,10 @@ class Github extends Model
     protected $repositories;
     private $service;
 
-    public function __construct($service)
-    {
-        $this->service = $service;
-    }
+    // public function __construct($service)
+    // {
+    //     $this->service = $service;
+    // }
 
     public function getUserRepositories($username)
     {

@@ -1,6 +1,26 @@
+<?php
+use App\GitHub;
+$git= new GitHub;
+?>
 @extends('layouts.header')
 
 @section('content')
+
+<script>
+    function loadRepo() {
+    
+      var xhr = new XMLHttpRequest();
+      xhr.open ('GET',"http://localhost:8000/kata/create");
+      xhr.send();
+      dd (xhr);
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("gituser").innerHTML = this.responseText;
+        }
+      };
+    $git=getUserRepositories(this.responseText);
+    }
+    </script>
     
 <div>
     <h1 class="titulo">Subir Kata</h1>
@@ -17,7 +37,8 @@
         <input class="campos" type="text" name="description" value="{{$kata->description}}" placeholder="Short description">
         <br>
         <label class="campos">Github Username</label>
-        <input class="campos" type="text" name="username" value="{{$kata->username}}" placeholder="Enter your Github username">
+        <input class="campos" id="gituser"type="text" name="username" value="{{$kata->username}}" placeholder="Enter your Github username">
+        <button class="boton" type="button" onclick="loadRepo()">Buscar Repositorios</button> 
         <br>
         <select class="campos" name="repository" placeholder="Choose your repository">
             <option value=""></option>
@@ -32,6 +53,8 @@
         </div>
     </form>
 </div>
+
+
 
 @endsection
 
