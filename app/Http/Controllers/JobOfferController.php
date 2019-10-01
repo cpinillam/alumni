@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use App\JobOffer;
 use Illuminate\Http\Request;
+use Spatie\Searchable\Search;
+//use  modelo de searh  
 
 class JobOfferController extends Controller
 {
@@ -14,15 +17,23 @@ class JobOfferController extends Controller
      */
     public function index()
     {
-         
-        $jobOffers = JobOffer::all();
-       
-
+       // $jobOffers = JobOffer::all();
+        /* $jobOffers = DB::table('job_offers')
+                                    ->select(DB::raw('*'))
+                                    ->where('validate','=',1)
+                                    ->where('public','=',1)
+                                    ->get(); */
        //To Do politica acceso Laravel 
+        
+       $offers = new JobOffer();
+       
+       $jobOffers = DB::table('job_offers')->get();
+
        $coder=false;
-         if(!$coder){            
+         if($coder){            
              return view('superAdmin',['joboffer'=>$jobOffers]);
-         }        
+         }
+        $jobOffers= $offers->getAllOffersThatAreValidateAndPublic();        
         return view('jobOffers',['joboffer'=>$jobOffers]);
     }
 
@@ -71,11 +82,11 @@ class JobOfferController extends Controller
      * @param  \App\JobOffer  $jobOffer
      * @return \Illuminate\Http\Response
      */
-    public function show(JobOffer $jobOffer)
+    public function show(JobOffer $jobOffer,$id)
     {
          
         $offers = JobOffer::find($id);
-        return view('offer-detail', ['offer'=>$offers]);
+        return view('jobOfferDetail', ['offer'=>$offers]);
     }
 
     /**
@@ -94,13 +105,15 @@ class JobOfferController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\JobOffer  $jobOffer
+     *       $joboffer->validate = $request->validate;
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, JobOffer $joboffer)
     {
         $jobOfferToUpdate = JobOffer::find($joboffer->id);
-        $jobOfferToUpdate->validate = $request->validate; 
-        $jobOfferToUpdate->save();
+        $jobOfferToUpdate->validate = $request->validate;  
+ 
+        $joboffer->save();
         return redirect('joboffers');
     }
 
@@ -114,5 +127,14 @@ class JobOfferController extends Controller
     {
         $joboffer->delete(); 
         return redirect('joboffers');
+    }
+
+    public function search(Request $request){
+        $searchResults  = (new Search())
+            ->registerModel(JobOffer::class,'title','description','url')
+            //Más si quiero ->
+            ->perform($request->input('query'));
+
+            return view('search',compact('searchResults'));
     }
 }

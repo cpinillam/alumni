@@ -64,44 +64,31 @@
         </style>
     </head>
     <body>
+        <div class="container-fluid">
+                <ol>
+                        @foreach($personalProject as $project)
 
-        <div class="flex-center position-ref full-height card">
-       
-            <ol>
-                @foreach($joboffer as $offer)
-                
-                <li>
-                    <ol class="colorOl">
                         <li>
-                            Title: {{$offer->title}}
-                        </li>
-                        <li>
-                            Description: {{$offer->description}}
-                        </li>
-                        <li>
-                            URL: {{$offer->url}}
-                        </li>
-                        <li>
-                            Detail: <form action="{{route('joboffers.show',$offer->id)}}" method="get">
-                                @csrf
-                                <input type="submit" value="Want more Detail, useless ? Click it then">
-                            </form>
-                        </li>
+                           <ol>
+                               <li>Title: {{$project->title}}</li>
+                               <li>Description: {{$project->description}}</li>
+                               <li>URL: {{$project->urlgithub}}</li>
+                               <li>
+                                    Detail: <form action="{{route('personalsprojects.show',$project->id)}}" method="get">
+                                            @csrf
+                                            <input type="submit" value="Detail">
+                                        </form>
+                               </li>
+                            </ol> 
+                        </li>                        
+                        @endforeach
+                        <li><a href="/project-form">Create a new Project</a></li>
+                        @if(session('sucess'))
+                            <div class="alert alert-success">
+                                {{ session('sucess') }}
+                            </div>
+                    @endif
                     </ol>
-                </li>
-                
-                @endforeach
-                <li><br><a href="/new-job-offer">+ Create new Job Offer +</a>
-                </li>
-            </ol>
-            
-            <form action="/search" method="POST">
-                {{ csrf_field() }}
-                    @csrf
-                    <input type="text" name="query" />
-                    <input type="submit" class="btn btn-sm btn-primary" value="Search" />
-                </form>
         </div>
- 
     </body>
 </html>

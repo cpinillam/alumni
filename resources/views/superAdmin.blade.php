@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,13 +16,13 @@
                     <li>
                         <ol class="colorOl">
                             <li>
-                                titulo: {{$offer->title}}
+                                title: {{$offer->title}}
                             </li>
                             <li>
-                                descripcion: {{$offer->description}}
+                                description: {{$offer->description}}
                             </li>
                             <li>
-                                URLs: {{$offer->url}}
+                                URL: {{$offer->url}}
                             </li>
                             <li>
                                 <form action="/joboffers/{{$offer->id}}" method="POST">
