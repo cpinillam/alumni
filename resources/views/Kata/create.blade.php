@@ -7,28 +7,40 @@ $git= new GitHub;
 @section('content')
 
 <script>
-    function loadRepo() {
-    
-      var xhr = new XMLHttpRequest();
-      xhr.open ('GET',"http://localhost:8000/kata/create");
-      xhr.send();
-      dd (xhr);
-      xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("gituser").innerHTML = this.responseText;
+    async function loadRepo() {
+    const user = document.querySelector("#gituser").value ;
+        try{
+            const response = await fetch(`http://127.0.0.1:8000/api/kata/user/${user}`,{method:"GET"});
+            const data =await response.json();
+            printList(data);
+            console.log(data);
+
+        } catch (e) {
+            console.log(e)
         }
-      };
-    $git=getUserRepositories(this.responseText);
     }
+
+    function printList(array = []) {
+        const repos = document.querySelector("#repository");
+        array.forEach(repo=>{
+            const option = document.createElement("option");
+            option.value= repo.html_url;
+            option.innerHTML= repo.full_name;
+            repos.appendChild(option);
+        })
+
+    }
+
+
     </script>
-    
+
 <div>
     <h1 class="titulo">Subir Kata</h1>
     <h3 class="titulo">Completa todos los campos para subir tu Kata.</h3>
     @if ($errors->any())
         <p>Complete todos los campos</p>
     @endif
-    <form class="formulario" action="/kata" method="POST" >
+    <form id="create" class="formulario" action="/kata" method="POST" >
         @csrf
         <label class="campos">Name</label>
         <input class="campos" type="text" name="name" value="{{$kata->name}}" placeholder="Enter Kata name">
@@ -37,14 +49,10 @@ $git= new GitHub;
         <input class="campos" type="text" name="description" value="{{$kata->description}}" placeholder="Short description">
         <br>
         <label class="campos">Github Username</label>
-        <input class="campos" id="gituser"type="text" name="username" value="{{$kata->username}}" placeholder="Enter your Github username">
-        <button class="boton" type="button" onclick="loadRepo()">Buscar Repositorios</button> 
+        <input class="campos" id="gituser"type="text" name="username" value="hassnian" placeholder="Enter your Github username">
+        <button class="boton" type="button" onclick="loadRepo()">Buscar Repositorios</button>
         <br>
-        <select class="campos" name="repository" placeholder="Choose your repository">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+        <select form="create" class="campos" id="repository" name="repository">
         </select>
         <br>
         <div class="botones">
@@ -58,7 +66,7 @@ $git= new GitHub;
 
 @endsection
 
-{{-- 
+{{--
     <main>
         <div>
             <h1>Subir kata</h1>

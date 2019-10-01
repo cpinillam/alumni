@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Github;
 use App\Kata;
 use Illuminate\Http\Request;
 
@@ -54,6 +55,14 @@ class KataController extends Controller
     {
         $kata = Kata::find($id);
         return view ('layouts.send',  ['kata' => $kata]);
+    }
+
+    public function GetGhUser(Request $request,$username){
+
+        $github = new Github();
+        $repo = $github->getUserRepositories($username);
+        return $repo;
+
     }
 
 }

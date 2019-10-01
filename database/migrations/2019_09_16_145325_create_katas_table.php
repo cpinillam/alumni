@@ -20,7 +20,7 @@ class CreateKatasTable extends Migration
             $table->string('username');
             $table->string('repository')->default('0');
             $table->timestamps();
-            
+
         });
     }
 

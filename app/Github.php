@@ -23,12 +23,11 @@ class Github extends Model
                 'header' => ['User-Agent: PHP']
             ]
         ];
-        
+
         $context = stream_context_create($opts);
         $response = file_get_contents($this->url. '/users/'.$username.'/repos', false, $context);
         $decodedResponse = json_decode( $response );
         $this->repositories = collect($decodedResponse);
-        dd($this->repositories);
         return $this->repositories;
     }
 }
