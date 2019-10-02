@@ -14,9 +14,10 @@ class TechnicalSkills extends Migration
     public function up()
     {
         Schema::create('technical_skills', function (Blueprint $table) {
-            $table->bigIncrements('id_technical_skill');
-            $table->char('skill', 60);
+            $table->bigIncrements('id');
+            $table->string('title');
             $table->enum('level', ['1','2','3']);
+            $table->timestamps();
             
         });
     }

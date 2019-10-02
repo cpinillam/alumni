@@ -14,17 +14,22 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id_user');
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('surname');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            //$table->rememberToken();
+            $table->string('phone')->nullable();
+            $table->string('webPage')->nullable();
+            $table->string('github')->nullable();
+            $table->string('location')->nullable();
+            $table->string('linkedln')->nullable();
+            $table->string('codepen')->nullable();
             $table->timestamps();
-            $table->char('photo', 10)->nullable;
         });
-        //! BORRAR ME IM FAMOUS
+        /*
         Schema::create('USER_technical_skills_pivot', function (Blueprint $table) {
 
             $table->integer('id_technical_skill')->unsigned();
@@ -43,7 +48,7 @@ class CreateUsersTable extends Migration
             $table->char('skill', 60);
             $table->enum('level', ['1', '2', '3']);
         });
-        //! STOP BORRAR
+        */
     }
 
     /**

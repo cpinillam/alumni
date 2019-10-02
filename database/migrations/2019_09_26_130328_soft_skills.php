@@ -14,9 +14,10 @@ class SoftSkills extends Migration
     public function up()
     {
         Schema::create('soft_skills', function (Blueprint $table) {
-            $table->bigIncrements('id_soft_skill');
-            $table->char('skill', 60);
+            $table->bigIncrements('id');
+            $table->string('title');
             $table->enum('level', ['1','2','3']);
+            $table->timestamps();
         });
     }
 

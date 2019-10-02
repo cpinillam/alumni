@@ -14,9 +14,10 @@ class Languages extends Migration
     public function up()
     {
         Schema::create('languages', function (Blueprint $table) {
-            $table->bigIncrements('id_language');
-            $table->char('language', 20);
+            $table->bigIncrements('id');
+            $table->string('title');
             $table->enum('level', ['1','2','3']);
+            $table->timestamps();
         });
     }
 

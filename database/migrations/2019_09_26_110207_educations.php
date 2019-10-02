@@ -15,13 +15,14 @@ class Educations extends Migration
     public function up()
     {
         Schema::create('educations', function (Blueprint $table) {
-            $table->bigIncrements('id_education');
-            $table->char('degree', 60);
-            $table->char('school', 60);
-            $table->char('field', 60);
+            $table->bigIncrements('id');
+            $table->string('title');
+            $table->string('school');
+            $table->string('field');
             $table->date('startYear');
-            $table->date('endYear')->nullable;
-            $table->char('description', 300);
+            $table->date('endYear')->nullable();
+            $table->text('description');
+            $table->timestamps();
         });
     }
 
