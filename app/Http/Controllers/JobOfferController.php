@@ -27,7 +27,7 @@ class JobOfferController extends Controller
         
        $offers = new JobOffer();
        
-       $jobOffers = DB::table('job_offers')->get();
+       $jobOffers = $offers->getAllOffers();
 
        $coder=false;
          if($coder){            
@@ -105,16 +105,14 @@ class JobOfferController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\JobOffer  $jobOffer
-     *       $joboffer->validate = $request->validate;
+     *       
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, JobOffer $joboffer)
     {
-        $jobOfferToUpdate = JobOffer::find($joboffer->id);
-        $jobOfferToUpdate->validate = $request->validate;  
- 
+        /* $joboffer->validate = $request->validate;
         $joboffer->save();
-        return redirect('joboffers');
+        return redirect('joboffers'); */
     }
 
     /**
@@ -129,7 +127,16 @@ class JobOfferController extends Controller
         return redirect('joboffers');
     }
 
-    public function search(Request $request){
+
+    public function validar(Request $request, JobOffer $joboffer)
+    {
+        $joboffer->validate = $request->validate;
+        $joboffer->save();
+        return redirect('joboffers');
+    }
+
+    public function search(Request $request)
+    {
         $searchResults  = (new Search())
             ->registerModel(JobOffer::class,'title','description','url')
             //Más si quiero ->
