@@ -11,13 +11,14 @@ class PostController extends Controller
 
     public function index()
     {
-        return view('createquestion');
+        $questions = Post::orderBy('created_at', 'desc')->paginate(10);
+        return view('faq.readQuestion', compact('questions'));
     }
 
 
     public function create()
     {
-        return view('createquestion');
+        return view('faq.createQuestion');
     }
 
 
@@ -34,7 +35,7 @@ class PostController extends Controller
         ]);
         $post->save();
 
-        return redirect('createquestion')->with('success', 'Your question has been posted with success!');
+        return view('faq.createQuestion')->with('success', 'Your question has been posted with success!');
     }
 
 
@@ -56,6 +57,8 @@ class PostController extends Controller
 
     public function destroy($id)
     {
-        //
+        $question = App\Post::findOrFail($id);
+        $question->delete();
+        return redirect('faq.deletequestion')->with('success', 'This question has been deleted permanently!');
     }
 }

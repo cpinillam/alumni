@@ -17,18 +17,17 @@ class CreateAnswersTable extends Migration
         //! Refactoring with Foreign K https://www.larashout.com/introducing-one-to-many-relationship-in-laravel
         Schema::create('answers', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->bigIncrements('answer_id')->unique();
             $table->integer('post_id')->unsigned();
             $table->foreign('post_id')
-                ->references('id')->on('posts');
-            $table->integer('answer_author_id')->unsigned();
+                ->references('post_id')->on('posts');
+            $table->integer('answer_author_id')->unsigned()->nullable();
             $table->foreign('answer_author_id')
                 ->references('id')->on('users');
-            $table->boolean('best_answer')->default(false);
-            $table->string('title');
+            $table->boolean('is_best_answer')->nullable();
             $table->string('body', 2000);
             $table->boolean('deleted')->default(false);
+            $table->timestamps();
             $table->softDeletes();
         });
     }

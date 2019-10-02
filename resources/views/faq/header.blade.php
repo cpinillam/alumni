@@ -1,16 +1,8 @@
-<?php
-
-$preguntas = array("Unai Tsundere", "Unai Yandere", "Unai Kawaii", "Unai Sugoi",);
-
-?>
-
-
-
 <!doctype html>
 <html lang="en">
 
 <head>
-    <title>Post</title>
+    <title>F5 Technical Questions</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,23 +10,6 @@ $preguntas = array("Unai Tsundere", "Unai Yandere", "Unai Kawaii", "Unai Sugoi",
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
-<body>
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Question</h4>
-            <p class="card-text">Text</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            @foreach($questions as $post)
-            <li class="list-group-item">{{ $post->title }}<a href="{{ route('posts.show', $post->id) }}"
-                    class="list-group-item list-group-item-action"></a></li>
-            @endforeach
-        </ul>
-    </div>
-    @include('faq.createAnswer ')
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -46,6 +21,11 @@ $preguntas = array("Unai Tsundere", "Unai Yandere", "Unai Kawaii", "Unai Sugoi",
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-</body>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 
-</html>
+    <!-- include summernote css/js -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+</head>
+
+<body>

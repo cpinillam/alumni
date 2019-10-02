@@ -15,37 +15,28 @@ Route::get('/', function () {
     return view('faq.createQuestion');
 });
 
-// Route::post('post/{user}',  [
-//     'as' => 'post.store',
-//     'uses' => 'postcontroller@store'
-// ]);
+
+Route::resource('questions', 'PostController');
+Route::resource('answers', 'AnswerController');
 
 
-
-
-Route::resource('/createquestion', 'Postcontroller');
-
-Route::resource('/OfertaTrabajo', 'OfertasTrabajoController');
-
-
+//TODO Refactor routes
 Route::get('/createquestion', function () {
-    return view('faq/createQuestion');
+    return view('faq.createQuestion');
 });
 
-<<<<<<< HEAD
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-=======
+
 Route::get('/readquestion', function () {
-    return view('faq/readQuestion');
+    return view('faq.readQuestion');
 });
 
 Route::get('/uniquequestion', function () {
-    return view('faq/uniqueQuestion');
+    return view('faq.uniqueQuestion');
 });
 
 Route::get('/createanswer', function () {
-    return view('faq/createAnswer');
+    return view('faq.createAnswer');
 });
->>>>>>> f0e93452895fd3f28c5e7eeaf80b00c2c6814890
