@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::resource('/joboffers','JobOfferController');
 
 
-
+//
 Route::get('/job-offers-form', function () {
     return view('jobOffersForm'); 
 });

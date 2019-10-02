@@ -98,9 +98,9 @@ class JobOfferController extends Controller
      */
     public function update(Request $request, JobOffer $joboffer)
     {
-        $jobOfferToUpdate = JobOffer::find($joboffer->id);
-        $jobOfferToUpdate->validate = $request->validate; 
-        $jobOfferToUpdate->save();
+        
+        $joboffer->validate = $request->validate; 
+        $joboffer->save();
         return redirect('joboffers');
     }
 
