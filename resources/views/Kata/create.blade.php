@@ -49,7 +49,7 @@ $git= new GitHub;
         <input class="campos" type="text" name="description" value="{{$kata->description}}" placeholder="Short description">
         <br>
         <label class="campos">Github Username</label>
-        <input class="campos" id="gituser"type="text" name="username" value="hassnian" placeholder="Enter your Github username">
+        <input class="campos" id="gituser"type="text" name="username" value="{{$kata->username}}">
         <button class="boton" type="button" onclick="loadRepo()">Buscar Repositorios</button>
         <br>
         <select form="create" class="campos" id="repository" name="repository">
@@ -61,8 +61,6 @@ $git= new GitHub;
         </div>
     </form>
 </div>
-
-
 
 @endsection
 
