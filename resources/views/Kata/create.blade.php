@@ -39,13 +39,13 @@ $git= new GitHub;
     @endif
     <form id="create" class="formulario" action="/kata" method="POST" >
         @csrf
-        <label class="campos">Name</label>
-        <input class="campos" type="text" name="name" value="{{$kata->name}}" placeholder="Enter Kata name">
+        <label class="campos">Nombre de la kata</label>
+        <input class="campos" type="text" name="name" value="{{$kata->name}}" placeholder="nombre de la cata">
         <br>
-        <label class="campos">Description</label>
-        <input class="campos" type="text" name="description" value="{{$kata->description}}" placeholder="Short description">
+        <label class="campos">Descripción de la kata</label>
+        <input class="campos" type="text" name="description" value="{{$kata->description}}" placeholder="descripción">
         <br>
-        <label class="campos">Github Username</label>
+        <label class="campos">Usuario Github</label>
         <input class="campos" id="gituser"type="text" name="username" value="{{$kata->username}}">
         <button class="boton" type="button" onclick="loadRepo()">Buscar Repositorios</button>
         <br>
@@ -53,7 +53,7 @@ $git= new GitHub;
         </select>
         <br>
         <div class="botones">
-        <input class="boton" type="submit" value="Submit">
+        <input class="boton" type="submit" value="Subir">
         <a href="/kata" type="submit" class="boton">Listado de Katas</a>
         </div>
     </form>
