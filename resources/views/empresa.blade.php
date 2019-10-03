@@ -2,16 +2,16 @@
 
 @section('content')
     <div>
-        <h1>Company list</h1>
+        <h1>Listado de empresas</h1>
         <table> 
             <tr>
-                <th>Name</th>
-                <th>Headquarters</th>
-                <th>Location</th>
-                <th>Rating</th>
+                <th>Nombre</th>
+                <th>Oficinas centrales</th>
+                <th>Ubicación (iframe)</th>
+                <th>Valoración</th>
             </tr>
             @foreach ($empresas as $empresa)
-                <tr>
+                <tr> 
                     {{ csrf_field() }}
                     <td>{{$empresa->name}}</td>
                     <td>{{$empresa->headquarters}}</td>
@@ -26,7 +26,7 @@
                         <form action="/empresa/{{$empresa->id}}" method="POST">
                             @csrf
                             @method('DELETE')
-                        <button class="botonLista" type="submit">Delete</button>
+                        <button class="botonLista" type="submit">Borrar</button>
                         </form>
                     </td>
                 </tr>
@@ -35,7 +35,7 @@
         
         <div class="botonCrear">
                 <br>
-            <a href="/empresa/create" class="boton">Upload Company</a>
+            <a href="/empresa/create" class="boton">Crear Empresa</a>
         </div>
     </div>
 

@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $empresa = Empresa::all();
@@ -31,48 +27,28 @@ class EmpresaController extends Controller
         return redirect('/empresa/create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
     public function show(Empresa $empresa)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit(Empresa $empresa)
     {
-        return view('Empresa.edit',  ['empresa' => $id]);
+        return view('empresa.edit',  ['empresa' => $empresa]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Empresa $empresa)
     {
-        //
+        $data = $request->all();
+        $empresa = Empresa::find($empresa->id);
+        $empresa->fill($data);
+        $empresa->save();
+        return redirect ('empresa');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(Empresa $empresa)
     {
-        //
+        $empresa->destroy($empresa->id);
+        return redirect('empresa');
     }
 }
