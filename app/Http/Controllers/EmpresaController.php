@@ -14,8 +14,8 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        //$empresa = Empresa::all();
-        // return view('/empresa', ['empresas' => $empresa]);
+        $empresa = Empresa::all();
+        return view('empresa', ['empresas' => $empresa]);
     }
 
     public function create()
@@ -50,7 +50,7 @@ class EmpresaController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        //
+        return view('Empresa.edit',  ['empresa' => $id]);
     }
 
     /**
