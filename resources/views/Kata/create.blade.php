@@ -28,10 +28,7 @@ $git= new GitHub;
             option.innerHTML= repo.full_name;
             repos.appendChild(option);
         })
-
     }
-
-
     </script>
 
 <div>

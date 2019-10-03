@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <h1>Lista de katas</h1>
+        <h1>Listado de katas</h1>
         <table> 
             <tr>
                 <th>Nombre de kata</th>

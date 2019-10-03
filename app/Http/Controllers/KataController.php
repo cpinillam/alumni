@@ -42,7 +42,7 @@ class KataController extends Controller
         $kata = Kata::find($id);
         $kata->fill($data);
         $kata->save();
-        return view('layouts.send',  ['kata' => $kata]);
+        return view('layouts.sent',  ['kata' => $kata]);
     }
 
     public function destroy(Kata $kata, $id)
@@ -51,10 +51,10 @@ class KataController extends Controller
         return redirect('kata');
     }
 
-    public function kataSend (Request $request, $id)
+    public function kataSent (Request $request, $id)
     {
         $kata = Kata::find($id);
-        return view ('layouts.send',  ['kata' => $kata]);
+        return view ('layouts.sent',  ['kata' => $kata]);
     }
 
     public function GetGhUser(Request $request,$username){

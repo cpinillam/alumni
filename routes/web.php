@@ -15,13 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/kata', 'KataController@index')->name('home');
-//Route::get('/kata/create', 'KataController@create');
-//Auth::routes();
 
 Route::resource ('kata', 'KataController');
+Route::resource ('empresa', 'EmpresaController');
 
-//Route::get('kata/{katum}/edit','KataController@edit');
-//Route::get('kata/{katum}','KataController@destroy');
-Route::get('/kataSend/{id}','KataController@kataSend');
+Route::get('/kataSent/{id}','KataController@kataSent');
