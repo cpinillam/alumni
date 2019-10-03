@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class VolunteerExperiences extends Migration
+class CreateEducationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class VolunteerExperiences extends Migration
      */
     public function up()
     {
-        Schema::create('volunteer_experiences', function (Blueprint $table) {
+        Schema::create('educations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('organization');
-            $table->date('startDate');
-            $table->date('endDate')->nullable();
+            $table->string('school');
+            $table->string('field');
+            $table->date('startYear');
+            $table->date('endYear')->nullable();
             $table->text('description');
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -31,6 +34,6 @@ class VolunteerExperiences extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('education');
     }
 }

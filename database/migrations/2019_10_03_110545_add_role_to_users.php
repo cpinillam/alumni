@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SoftSkills extends Migration
+class AddRoleToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class SoftSkills extends Migration
      */
     public function up()
     {
-        Schema::create('soft_skills', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->enum('level', ['1','2','3']);
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            
+            $table->bigInteger('rol_id')->unsigned();
+            $table->foreign('rol_id')->references('id')->on('roles');
         });
     }
 
@@ -28,6 +27,8 @@ class SoftSkills extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }

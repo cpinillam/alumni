@@ -1,11 +1,10 @@
 <?php
 
-use Carbon\Traits\Timestamp;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Educations extends Migration
+class CreateSoftSkillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +13,13 @@ class Educations extends Migration
      */
     public function up()
     {
-        Schema::create('educations', function (Blueprint $table) {
+        Schema::create('soft_skills', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('school');
-            $table->string('field');
-            $table->date('startYear');
-            $table->date('endYear')->nullable();
-            $table->text('description');
             $table->timestamps();
+            $table->string('title');
+            $table->enum('level', ['1','2','3']);
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -33,6 +30,6 @@ class Educations extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('soft_skills');
     }
 }

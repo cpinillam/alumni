@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TechnicalSkills extends Migration
+class CreateLanguagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class TechnicalSkills extends Migration
      */
     public function up()
     {
-        Schema::create('technical_skills', function (Blueprint $table) {
+        Schema::create('languages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->enum('level', ['1','2','3']);
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             
         });
     }
@@ -29,6 +31,6 @@ class TechnicalSkills extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('languages');
     }
 }
