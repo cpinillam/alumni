@@ -27,6 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('linkedln')->nullable();
             $table->string('codepen')->nullable();
             $table->timestamps();
+            /*$table->bigInteger('rol_id')->unsigned();
+            $table->foreign('rol_id')->references('id')->on('roles');*/
         });
         /*
         Schema::create('USER_technical_skills_pivot', function (Blueprint $table) {
