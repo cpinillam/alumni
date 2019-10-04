@@ -6,17 +6,26 @@
         <table> 
             <tr>
                 <th>Nombre</th>
-                <th>Oficinas centrales</th>
-                <th>Ubicación (iframe)</th>
+                <th>Oficina</th>
+                {{-- <th>Ubicación (iframe)</th> --}}
                 <th>Valoración</th>
+                <th>Opiniones</th>
+                <th>Sueldo anual</th>
             </tr>
             @foreach ($empresas as $empresa)
                 <tr> 
                     {{ csrf_field() }}
                     <td>{{$empresa->name}}</td>
                     <td>{{$empresa->headquarters}}</td>
-                    <td>{{$empresa->url_iframe}}</td>
+                    {{-- <td>{{$empresa->url_iframe}}</td> --}}
                     <td>{{$empresa->rating}}</td>
+                    <td>{{$empresa->review}}</td>
+                    <td>{{$empresa->anual_salary}}</td>
+                    <td>
+                        <form method="GET" action="/empresa/{{$empresa->id}}">
+                            <input class="botonLista" type="submit" value="Visualizar">
+                        </form> 
+                    </td>
                     <td>
                         <form method="GET" action="/empresa/{{$empresa->id}}/edit">
                             <input class="botonLista" type="submit" value="Editar">

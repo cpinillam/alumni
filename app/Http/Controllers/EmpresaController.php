@@ -16,7 +16,6 @@ class EmpresaController extends Controller
 
     public function create()
     {
-        
         $empresa = new Empresa();
         return view('empresa.create', ['empresa' => $empresa]);
     }
@@ -29,7 +28,8 @@ class EmpresaController extends Controller
 
     public function show(Empresa $empresa)
     {
-        //
+        $empresa = Empresa::find($empresa->id);
+        return view ('empresa.show',['empresa' => $empresa]);
     }
    
     public function edit(Empresa $empresa)
