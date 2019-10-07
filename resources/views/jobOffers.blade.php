@@ -5,73 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
     </head>
     <body>
+            
+           <a href="/log-coder"> <button class="btn btn-primary">Coder</button></a>
+           <a href="/log-admin"> <button class="btn btn-danger">Admin</button></a>
+        
 
-        <div class="flex-center position-ref full-height card">
-       
+        <div class="container-fluid">
+           {{--  @dd($userTem)
+            @foreach ($userTem as $value)
+                 <p>Nombre{{$value->nombre}}</p>
+                 <p>ID:{{$value->id}}</p>
+                 <p>Rol{{$value->rol}}</p>
+            @endforeach --}}
             <ol>
                 @foreach($joboffer as $offer)
                 
                 <li>
-                    <ol class="colorOl">
+                    <ol>
                         <li>
                             Title: {{$offer->title}}
                         </li>
@@ -81,14 +36,28 @@
                         <li>
                             URL: {{$offer->url}}
                         </li>
+                        <li>
+                            Detail: <form action="{{route('joboffers.show',$offer->id)}}" method="get">
+                                @csrf
+                                <button type="submit" class="btn btn-outline-info">More detail</button>
+                            </form>
+                        </li>
                     </ol>
                 </li>
                 
                 @endforeach
-                <li><br><a href="/new-job-offer">+ Create new Job Offer +</a>
                 </li>
             </ol>
-        </div>
+            <li><br><a href="/new-job-offer">+ Create new Job Offer +</a>
+            
+            <form action="/search" method="POST">
+                {{ csrf_field() }}
+                    @csrf
+                    <input type="text" name="query" />
+                    <input type="submit" class="btn btn-sm btn-primary" value="Search"/>
+                </form>
+
+    </div>
  
     </body>
 </html>
