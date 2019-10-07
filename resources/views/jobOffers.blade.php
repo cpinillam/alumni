@@ -10,10 +10,18 @@
 
     </head>
     <body>
+            
+           <a href="/log-coder"> <button class="btn btn-primary">Coder</button></a>
+           <a href="/log-admin"> <button class="btn btn-danger">Admin</button></a>
+        
 
         <div class="container-fluid">
-            
-       
+           {{--  @dd($userTem)
+            @foreach ($userTem as $value)
+                 <p>Nombre{{$value->nombre}}</p>
+                 <p>ID:{{$value->id}}</p>
+                 <p>Rol{{$value->rol}}</p>
+            @endforeach --}}
             <ol>
                 @foreach($joboffer as $offer)
                 

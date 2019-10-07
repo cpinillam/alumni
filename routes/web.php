@@ -32,6 +32,7 @@ Route::get('/project-form',function(){
 
 Route::post('/search','JobOfferController@search');
 
+
 Route::post('/validate/{joboffer}','JobOfferController@validar'); 
 
 
@@ -49,3 +50,7 @@ Route::get('/super-admin', function () {
  });
 
  
+ Route::get('/log-admin','UserTemporalController@beAdmin');
+ Route::get('/log-coder','UserTemporalController@dontBeAdmin');
+
+ Route::get('/toContoller','JobOfferController@index');

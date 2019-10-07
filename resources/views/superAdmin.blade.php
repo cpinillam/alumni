@@ -17,7 +17,7 @@
         </div>
     
     <ol>
-                    @foreach($joboffer as $offer)
+                    @foreach($jobOffers as $offer)
                    
                     
                     <li>
@@ -38,10 +38,10 @@
                                    {{--  @method('PUT') --}}
 
                                     @if(!$offer->validate)
-                                        <button type="submit" class="btn btn-primary" name="validate" value="1">VALIDAR->1</button>
+                                        <button type="submit" class="btn btn-primary" name="validating" value="1">VALIDAR->1</button>
                                     @endif
                                     @if($offer->validate)
-                                    <button type="submit" class="btn btn-warning" name="validate" value="0">NO VALIDAR->0</button>
+                                    <button type="submit" class="btn btn-warning" name="validating" value="0">NO VALIDAR->0</button>
                                     @endif
                                  
                                 </form>   

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
 use App\JobOffer;
+use App\User;
 use Illuminate\Http\Request;
 use Spatie\Searchable\Search;
 //use  modelo de searh  
@@ -17,21 +18,25 @@ class JobOfferController extends Controller
      */
     public function index()
     {
-       // $jobOffers = JobOffer::all();
-        /* $jobOffers = DB::table('job_offers')
-                                    ->select(DB::raw('*'))
-                                    ->where('validate','=',1)
-                                    ->where('public','=',1)
-                                    ->get(); */
-       //To Do politica acceso Laravel 
-        
        $offers = new JobOffer();
+      
+      //TODO: eliminar cuanto tengamos el user real
+       $user = new User();
+     
+       //$isUser = $user->admin;
+        /* 
+       $beAdmin = $user->setAdmin();
+       $notBeAdmin = $user->notAdmin(); */
+
        
        $jobOffers = $offers->getAllOffers();
+        
 
-       $coder=false;
-         if($coder){            
-             return view('superAdmin',['joboffer'=>$jobOffers]);
+      
+       //if()$user->isAdmin(){
+         if($user->isAdmin()){            
+             return view('superAdmin',['jobOffers'=>$jobOffers]);
+     
          }
         $jobOffers= $offers->getAllOffersThatAreValidateAndPublic();        
         return view('jobOffers',['joboffer'=>$jobOffers]);
@@ -130,7 +135,8 @@ class JobOfferController extends Controller
 
     public function validar(Request $request, JobOffer $joboffer)
     {
-        $joboffer->validate = $request->validate;
+        
+        $joboffer->validate = $request->validating;
         $joboffer->save();
         return redirect('joboffers');
     }
