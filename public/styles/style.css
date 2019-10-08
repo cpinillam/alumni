@@ -88,4 +88,10 @@ footer {
   padding: 30px;
 }
 
+.foto1 {
+  display: table;
+  height: 100px;
+  width: auto;
+}
+
 /*# sourceMappingURL=style.css.map */

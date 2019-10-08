@@ -6,8 +6,8 @@
     <h1 class="titulo">{{$empresa->name}}</h1>
     <div class="ubicacion">
             <div class="oficina">
-                    <div class="foto">
-                        <img src="{{$empresa->url_pic_hq}}">
+                    <div class> 
+                        <img class="foto1" src="{{$empresa->url_pic_hq}}">
                     </div>
                 </div>
         <div class="iframe">

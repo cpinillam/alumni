@@ -3,6 +3,7 @@
 @section('content')
     <div>
         <h1>Listado de empresas</h1>
+
         <table> 
             <tr>
                 <th>Nombre</th>
