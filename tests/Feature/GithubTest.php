@@ -14,7 +14,7 @@ class GithubTest extends TestCase
     public function testIfGithubServiceReturnsArray()
     {
         $username = 'colmanfranco';
-        $client = new Github('service');
+        $client = new Github();
         $array = $client->getUserRepositories($username);
         $this->assertIsObject($array);
     }
@@ -24,7 +24,7 @@ class GithubTest extends TestCase
         $service = Mockery::mock('service');
         $service->shouldReceive('full_name => colmanfranco/kataCRUD')->once();
 
-        $github = new Github($service);
+        $github = new Github();
         $username = 'colmanfranco';
         $repo = $github->getUserRepositories($username);
 

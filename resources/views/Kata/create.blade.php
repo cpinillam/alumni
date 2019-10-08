@@ -11,7 +11,7 @@ $git= new GitHub;
     const user = document.querySelector("#gituser").value ;
         try{
             const response = await fetch(`http://127.0.0.1:8000/api/kata/user/${user}`,{method:"GET"});
-            const data =await response.json();
+            const data = await response.json();
             printList(data);
             console.log(data);
 

@@ -30,4 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'linkedin' => [
+        'client_id' => env('86bnoh8qdwc9ps'),
+        'client_secret' => env('2tVFA6mtfmmbH9Jd'),
+        'redirect' => 'http://127.0.0.1:8000/auth/linkedin/callback/
+        ',
+    ],
+
 ];

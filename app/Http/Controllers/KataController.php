@@ -57,8 +57,8 @@ class KataController extends Controller
         return view ('layouts.sent',  ['kata' => $kata]);
     }
 
-    public function GetGhUser(Request $request,$username){
-
+    public function GetGhUser(Request $request,$username)
+    {
         $github = new Github();
         $repo = $github->getUserRepositories($username);
         return $repo;
