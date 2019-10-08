@@ -42,5 +42,3 @@
 </body>
 
 </html>
-
-foreach ($post->comments as $comment) {

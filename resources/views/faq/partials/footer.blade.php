@@ -1,3 +1,4 @@
+@extends('faqIndex')
 @section('footer')
 <footer>
 

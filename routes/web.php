@@ -11,32 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('faq.createQuestion');
-});
+use App\Providers\RouteServiceProvider;
+
+//*FAQ ROUTES LINE 16 TO LINE 40
+
+Route::view('/', 'faq.faqIndex');
+// Route::get('/readquestion', 'PostController@getAllQuestions');
+Route::get('/readquestion', 'PostController@show')->name('allquestions');
+
+Route::get('/uniquequestion/{post_id}', 'PostController@showUniqueQuestionID');
+Route::post('/createanswer', 'AnswerController@store');
 
 
-Route::resource('questions', 'PostController');
-Route::resource('answers', 'AnswerController');
+Route::resource('answers', 'AnswerController')->except([
+    'store'
+]);
+Route::resource('questions', 'PostController')->except([
+    'showUniqueQuestionID', 'show'
+]);
 
 
-//TODO Refactor routes
 Route::get('/createquestion', function () {
     return view('faq.createQuestion');
 });
-
-
 Auth::routes();
-
-
-Route::get('/readquestion', function () {
-    return view('faq.readQuestion');
-});
-
-Route::get('/uniquequestion', function () {
-    return view('faq.uniqueQuestion');
-});
-
-Route::get('/createanswer', function () {
-    return view('faq.createAnswer');
-});

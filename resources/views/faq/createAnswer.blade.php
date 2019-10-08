@@ -25,10 +25,12 @@
         @endif
         <div class="form-group">
             <label for="">Post Your Answer</label>
-        </div>
-        <form action="answers" method="post">
-            <input type="text" placeholder="text">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+            <form action="/createanswer" method="post">
+                @csrf
+                <input name="post_id" value="{{$question->post_id}}" hidden="true">
+                <input type="text" name="body" placeholder="Post your Answer here">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </form>
 
-        @include('footer')
+            {{-- @include('partials.footer') --}}

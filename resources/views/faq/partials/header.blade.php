@@ -1,3 +1,7 @@
+@extends('faq.faqIndex')
+@section('header')
+
+
 <!doctype html>
 <html lang="en">
 
@@ -29,3 +33,4 @@
 </head>
 
 <body>
+    @endsection

@@ -13,17 +13,20 @@
 </head>
 
 <body>
-    @foreach ($questions as $question)
     <div class="card">
-
         <div class="card-body">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a
-                        href="{{ route('posts.show', $question->id) }}">{{ $question->title }}</a></li>
+                @foreach ($questions as $question)
+                <a href="/uniquequestion/{{$question->post_id}}">
+                    <input type="hidden" name="post_id" value="{{$question->post_id}}">
+                    <li class="list-group-item">
+                        {{ $question->title }}
+                    </li>
+                </a>
+                @endforeach
             </ul>
-
         </div>
-        @endforeach
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

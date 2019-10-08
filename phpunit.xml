@@ -7,7 +7,10 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="false">
+         stopOnFailure="false"
+        beStrictAboutTestsThatDoNotTestAnything="true"
+	    beStrictAboutOutputDuringTests="true"
+	    beStrictAboutChangesToGlobalState="true">
     <testsuites>
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
