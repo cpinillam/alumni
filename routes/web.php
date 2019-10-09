@@ -54,3 +54,8 @@ Route::get('/super-admin', function () {
  Route::get('/log-coder','UserTemporalController@dontBeAdmin');
 
  Route::get('/toContoller','JobOfferController@index');
+
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
