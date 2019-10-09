@@ -16,3 +16,8 @@ Route::get('/', function () {
 });
 Route::resource('/OfertaTrabajo','OfertasTrabajoController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('experience', 'ExperienceController');
