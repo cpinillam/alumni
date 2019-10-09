@@ -10,5 +10,10 @@ class Role extends Model
         return $this->hasMany('App\User');
 
     }
+
+    public static function getThefuckingRoles()
+    {
+        return Self::all()->pluck('id','title');
+    }
     //
 }
