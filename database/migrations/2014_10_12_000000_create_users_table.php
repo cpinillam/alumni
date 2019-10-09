@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('location')->nullable();
             $table->string('linkedln')->nullable();
             $table->string('codepen')->nullable();
+            $table->rememberToken();
             $table->timestamps();
             /*$table->bigInteger('rol_id')->unsigned();
             $table->foreign('rol_id')->references('id')->on('roles');*/
@@ -50,6 +51,9 @@ class CreateUsersTable extends Migration
             $table->enum('level', ['1', '2', '3']);
         });
         */
+
+
+    
     }
 
     /**

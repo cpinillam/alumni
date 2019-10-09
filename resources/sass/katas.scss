@@ -1,0 +1,106 @@
+$colorBackgroundHeader: #F293B3;
+$colorBackgroundMain: #393939;
+$colorFontHeader: #575757;
+$colorFontMain: #FFFFFF;
+$colorFontFormulary: #F293B3;
+$colorFontButton: #303030;
+$font:'Roboto', sans-serif;
+$fontFooter: 'Roboto Mono', monospace;
+
+* {
+    font-family: $font;   
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+}
+
+body {
+    background-color: #E5E5E5;
+    height: 100vh;
+}
+
+#header {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: $colorBackgroundHeader;
+    color: $colorFontHeader;
+
+    nav {
+        width: 100%;
+        position: relative;
+        ul {
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: 20px;
+            right: 0;
+            position: absolute;
+            padding: 0;
+            width: 600px;
+            display: inline-flex;
+            justify-content: space-around;
+            list-style-type: none;
+        }
+    }
+}
+
+main {
+    background-color: $colorBackgroundMain;
+    height: 80%;
+    color: $colorFontMain;
+    text-align: center;
+    .titulo {
+        text-align: start;
+    }
+    .formulario {
+        vertical-align: middle;
+        display: inline-grid;
+        width: 70%;
+        text-align: left;
+    }
+    .campos {
+        color: $colorFontFormulary;
+        width: 70%;
+        text-align: left;
+    }
+}
+
+table {
+    display: inline-table;
+}
+
+
+footer {
+    font-family: $fontFooter;
+    background-color: #FDC539;
+    padding: 30px;
+    text-align: center;
+}
+
+.boton{
+    width: 10em;
+    color: $colorFontButton;
+    background-color: $colorBackgroundHeader;
+    text-decoration: none;
+    text-align: center;
+}
+
+.botonLista{
+    width: 5em;
+    color: $colorFontButton;
+    background-color: $colorBackgroundHeader;
+    text-decoration: none;
+    text-align: center;
+}
+
+.botonCrear {
+    display: table;
+    padding: 30px;
+}
+
+.foto1 {
+    display: table;
+    height: 100px;
+    width: auto;
+}
