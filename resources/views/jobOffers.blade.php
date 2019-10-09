@@ -12,7 +12,7 @@
     <body>
 
         <div class="container-fluid">
-            
+           
        
             <ol>
                 @foreach($joboffer as $offer)
@@ -28,6 +28,7 @@
                         <li>
                             URL: {{$offer->url}}
                         </li>
+                        </li>Created at {{$offer->created_at}}</li>
                         <li>
                             Detail: <form action="{{route('joboffers.show',$offer->id)}}" method="get">
                                 @csrf

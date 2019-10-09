@@ -27,15 +27,17 @@ class JobOfferController extends Controller
         
        $offers = new JobOffer();
        
-       $jobOffers = $offers->getAllOffers();
+       $jobOffers = $offers->getAllOffersOrderByCreatedDayDesc();
 
+     
+       
        $coder=false;
          if($coder){            
              return view('superAdmin',['joboffer'=>$jobOffers]);
          }
         $jobOffers= $offers->getAllOffersThatAreValidateAndPublic();        
         return view('jobOffers',['joboffer'=>$jobOffers]);
-    }
+    }   
 
     /**
      * Show the form for creating a new resource.
