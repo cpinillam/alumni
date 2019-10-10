@@ -18,12 +18,12 @@ class CreateFaqAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('answer_id')->unique();
-            $table->integer('post_id')->unsigned();
+            /* $table->integer('post_id')->unsigned();
             $table->foreign('post_id')
                 ->references('post_id')->on('posts');
             $table->integer('answer_author_id')->unsigned()->nullable();
             $table->foreign('answer_author_id')
-                ->references('id')->on('users');
+                ->references('id')->on('users'); */
             $table->boolean('is_best_answer')->nullable();
             $table->string('body', 2000);
             $table->boolean('deleted')->default(false);

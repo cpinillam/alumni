@@ -21,9 +21,8 @@ class CreateExperiencesTable extends Migration
             $table->date('startDate')->nullable();
             $table->date('endDate')->nullable();
             $table->text('description')->nullable();
-            $table->timestamps()->nullable();
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
+
 
         });
     }

@@ -15,7 +15,9 @@ class CreateFaqUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+           //$table->increments('id');
+           $table->bigIncrements('id');
+            
             $table->string('name');
             $table->string('surname');
             $table->string('email')->unique();
@@ -54,7 +56,7 @@ class CreateFaqUsersTable extends Migration
         */
 
 
-    
+
     }
 
     /**

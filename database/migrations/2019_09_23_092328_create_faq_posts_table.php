@@ -16,9 +16,8 @@ class CreateFaqPostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('post_id')->unique();
-            $table->integer('post_author_id')->unsigned()->nullable();
-            $table->foreign('post_author_id')
-                ->references('id')->on('users');
+            /* $table->integer('post_author_id')->unsigned()->nullable();
+            $table->foreign('post_author_id')->references('id')->on('users'); */
             $table->string('title', 150);
             $table->string('body', 10000);
             $table->boolean('has_answers')->nullable();
