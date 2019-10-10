@@ -15,16 +15,13 @@ class CreateLanguagesTable extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_oferta');
-            $table->boolean('PHP')->default(false);
-            $table->boolean('JavaScript')->default(false);
-            $table->boolean('Phyton')->default(false);
-            $table->boolean('Ruby')->default(false);
-            $table->boolean('C++')->default(false);
-            $table->boolean('C#')->default(false);
+            $table->string('title');
+            $table->enum('level', ['1','2','3']);
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            
         });
-       
     }
 
     /**

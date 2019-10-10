@@ -1,3 +1,4 @@
+<?php use App\Role; ?>
 @extends('layouts.app')
 
 @section('content')
@@ -36,6 +37,26 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" required autocomplete="surname">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
+
+                            <div class="col-md-6">
+                                <?php $opciones = Role::getTheFuckingRoles();
+                                dd($opciones);?>
+                                <select name="role" id="role" type="text" class="form-control @error('role') is-invalid @enderror" required autocomplete="role">
+                                    <option value="role">Super Admin</option>
+                                    <option value="role">Coder</option>
+                                </select>
                             </div>
                         </div>
 

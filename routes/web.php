@@ -59,3 +59,23 @@ Route::get('/super-admin', function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+
+//Route::resource('/OfertaTrabajo','OfertasTrabajoController');
+Route::get('/kata', 'KataController@index');
+
+Route::resource ('kata', 'KataController');
+Route::resource ('empresa', 'EmpresaController');
+
+Route::get('/kataSent/{id}','KataController@kataSent');
+
+
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
+//Route::resource('experience', 'ExperienceController');
+    //return view('welcome');
+
+
