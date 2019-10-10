@@ -15,7 +15,7 @@
                 <h1 class="text-primary ">Administrador</h1>
             </div>
         </div>
-    
+   
     <ol>
                     @foreach($jobOffers as $offer)
                    

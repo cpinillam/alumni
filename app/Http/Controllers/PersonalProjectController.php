@@ -7,17 +7,21 @@ use Illuminate\Http\Request;
 
 class PersonalProjectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $projects= new PersonalProject();
-        $personalProjects= $projects->getAllProjectsThatAreValidateAndPublic();
-        
-        return view('personalProjects',['personalProject'=>$personalProjects]);
+    {
+        $projects = new PersonalProject();
+        $personalProjects = $projects->getAllProjectsThatAreValidateAndPublic();
+
+        return view('personalProjects', ['personalProject' => $personalProjects]);
     }
 
     /**
@@ -39,10 +43,10 @@ class PersonalProjectController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title'=> 'required',
-            'description'=> 'required',
+            'title' => 'required',
+            'description' => 'required',
             'public' => 'required',
-            'urlgithub'=> 'required'
+            'urlgithub' => 'required'
 
         ]);
         $project = new PersonalProject();
@@ -50,12 +54,11 @@ class PersonalProjectController extends Controller
         $project->description = $request->description;
         $project->public = $request->public;
         $project->urlgithub = $request->urlgithub;
-        
+
 
         $project->save();
 
-        return redirect('personalsprojects')->with('sucess', 'Project added!'); 
-
+        return redirect('personalsprojects')->with('sucess', 'Project added!');
     }
 
     /**
@@ -64,11 +67,11 @@ class PersonalProjectController extends Controller
      * @param  \App\PersonalProject  $personalProject
      * @return \Illuminate\Http\Response
      */
-    public function show(PersonalProject $personalProject,$id)
+    public function show(PersonalProject $personalProject, $id)
     {
-        
+
         $projects = PersonalProject::find($id);
-        return view('projectDetail', ['project'=>$projects]);
+        return view('projectDetail', ['project' => $projects]);
     }
 
     /**

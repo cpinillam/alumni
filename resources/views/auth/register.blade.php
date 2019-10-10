@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <?php use App\Role; ?>
+=======
+>>>>>>> 9b54c08537fc0b022e49c36513cde90f0bcd598a
 @extends('layouts.app')
 
 @section('content')

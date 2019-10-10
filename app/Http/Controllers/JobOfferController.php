@@ -29,18 +29,17 @@ class JobOfferController extends Controller
        $notBeAdmin = $user->notAdmin(); */
 
        
-       $jobOffers = $offers->getAllOffers();
-        
+       $jobOffers = $offers->getAllOffersOrderByCreatedDayDesc();
 
-      
-       //if()$user->isAdmin(){
-         if($user->isAdmin()){            
-             return view('superAdmin',['jobOffers'=>$jobOffers]);
      
+       
+       $coder=false;
+         if($coder){            
+             return view('superAdmin',['joboffer'=>$jobOffers]);
          }
         $jobOffers= $offers->getAllOffersThatAreValidateAndPublic();        
         return view('jobOffers',['joboffer'=>$jobOffers]);
-    }
+    }   
 
     /**
      * Show the form for creating a new resource.

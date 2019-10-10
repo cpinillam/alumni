@@ -28,6 +28,11 @@ class JobOffer extends Model implements Searchable
         return $sql;
     }
 
+    public function getAllOffersOrderByCreatedDayDesc(){
+        $sql = DB::table('job_offers')->orderBy('created_at','desc')->get();
+        return $sql;
+    }
+    
     public function getSearchResult(): SearchResult
     {
         $url = route('joboffers.show',$this->id);
