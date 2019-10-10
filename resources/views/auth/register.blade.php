@@ -1,4 +1,6 @@
-<?php use App\Role; ?>
+<?php
+
+use App\Role; ?>
 @extends('layouts.app')
 
 @section('content')
@@ -51,11 +53,14 @@
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
 
                             <div class="col-md-6">
-                                <?php $opciones = Role::getTheFuckingRoles();
-                                dd($opciones);?>
-                                <select name="role" id="role" type="text" class="form-control @error('role') is-invalid @enderror" required autocomplete="role">
-                                    <option value="role">Super Admin</option>
-                                    <option value="role">Coder</option>
+
+                                <?php $roles = Role::getRoles(); ?>
+                                <select name="rol_id" id="role" type="text" class="form-control @error('role') is-invalid @enderror" required autocomplete="role">
+
+                                    <option value='null'>Selecciona un Role</option>
+                                    @foreach($roles as $roleId => $roleName)
+                                    <option value="{{$roleId}}">{{$roleName}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

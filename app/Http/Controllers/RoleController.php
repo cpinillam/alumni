@@ -24,8 +24,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $title = Title::all();
-        return view ('role.create', compact('title'));
+        $titles = Title::all();
+        return view ('role.create', compact('name'));
     }
 
     /**
