@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome'); //nuevaOferta
 });
 Route::resource('/OfertaTrabajo','OfertasTrabajoController');
+Route::get('/kata', 'KataController@index');
+
+Route::resource ('kata', 'KataController');
+Route::resource ('empresa', 'EmpresaController');
+
+Route::get('/kataSent/{id}','KataController@kataSent');
+
 
 
 Auth::routes();
@@ -22,10 +29,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('experience', 'ExperienceController');
     return view('welcome');
-Route::get('/kata', 'KataController@index')->name('home');
 
-Route::resource ('kata', 'KataController');
-Route::resource ('empresa', 'EmpresaController');
-
-Route::get('/kataSent/{id}','KataController@kataSent');
 
