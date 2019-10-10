@@ -23,6 +23,9 @@ Route::resource ('empresa', 'EmpresaController');
 Route::get('/kataSent/{id}','KataController@kataSent');
 
 
+Route::get('/editProfile', function() {
+    return view('editProfile');
+});
 
 Auth::routes();
 

@@ -15,13 +15,13 @@ class CreateExperiencesTable extends Migration
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('company');
+            $table->string('title')->nullable();
+            $table->string('company')->nullable();
             $table->string('location');
-            $table->date('startDate');
+            $table->date('startDate')->nullable();
             $table->date('endDate')->nullable();
-            $table->text('description');
-            $table->timestamps();
+            $table->text('description')->nullable();
+            $table->timestamps()->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
