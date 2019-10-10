@@ -45,7 +45,7 @@ Route::post('/search','JobOfferController@search');
 Route::post('/validate/{joboffer}','JobOfferController@validar'); 
 
 
-
+//
 Route::get('/job-offers-form', function () {
     return view('jobOffersForm'); 
 });
