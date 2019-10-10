@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<?php use App\Role; ?>
-=======
->>>>>>> 9b54c08537fc0b022e49c36513cde90f0bcd598a
-=======
->>>>>>> 6ad1b7aa30ad7c69b72d4ed3b08fbc229766859e
+
+<?php
+
+use App\Role; ?>
+
 @extends('layouts.app')
 
 @section('content')
@@ -47,7 +45,6 @@
                         </div>
 
                         <div class="form-group row">
-<<<<<<< HEAD
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
 
                             <div class="col-md-6">
@@ -58,18 +55,19 @@
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
 
                             <div class="col-md-6">
-                                <?php $opciones = Role::getTheFuckingRoles();
-                                dd($opciones);?>
-                                <select name="role" id="role" type="text" class="form-control @error('role') is-invalid @enderror" required autocomplete="role">
-                                    <option value="role">Super Admin</option>
-                                    <option value="role">Coder</option>
+
+                                <?php $roles = Role::getRoles(); ?>
+                                <select name="rol_id" id="role" type="text" class="form-control @error('role') is-invalid @enderror" required autocomplete="role">
+
+                                    <option value='null'>Selecciona un Role</option>
+                                    @foreach($roles as $roleId => $roleName)
+                                    <option value="{{$roleId}}">{{$roleName}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group row">
-=======
->>>>>>> 6ad1b7aa30ad7c69b72d4ed3b08fbc229766859e
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

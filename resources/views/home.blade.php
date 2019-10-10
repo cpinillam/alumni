@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
-
+                
+                <div class="card-header">Welcome Coder!!</div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Now you can update your profile to meet other Coders! Click to start!<br>
+                    <a href="/experience/create" id="editButton" >Complete profile</a>
                 </div>
             </div>
         </div>

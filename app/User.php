@@ -12,7 +12,7 @@ class User extends UserTemporal
     use Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'password', 'surname', 'role'
+        'name', 'email', 'password', 'surname', 'rol_id'
     ];
 
     /**
@@ -32,7 +32,8 @@ class User extends UserTemporal
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function role(){
+    public function role()
+    {
         return $this->belongsTo('App\Role');
     }
 

@@ -15,7 +15,7 @@ class ExperienceController extends Controller
     public function index()
     {
         $experiences = Experience::all();
-        return view('experiences.index',compact('experiences'));
+        return view('experiences.index', compact('experiences'));
     }
 
     /**
@@ -25,7 +25,8 @@ class ExperienceController extends Controller
      */
     public function create()
     {
-        //
+        $experience = new Experience();
+        return view('/editProfile', ['experience'=> $experience]);
     }
 
     /**
@@ -36,7 +37,8 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Experience::create($request->all());
+        return redirect('/experience/create');
     }
 
     /**
