@@ -11,11 +11,6 @@ class User extends UserTemporal
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name', 'email', 'password', 'surname', 'role'
     ];
@@ -71,4 +66,13 @@ class User extends UserTemporal
         return $this->hasMany('App\Language');
     }
 
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+
+    public function Answers()
+    {
+        return $this->hasMany('App\Answer');
+    }
 }

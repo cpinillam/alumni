@@ -13,7 +13,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/jobs', function () {
     return view('content'); //nuevaOferta
 }); 
 
@@ -64,9 +64,9 @@ Route::get('/super-admin', function () {
 
  Route::get('/toContoller','JobOfferController@index');
 
-    Auth::routes();
+    //Auth::routes();
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    //Route::get('/home', 'HomeController@index')->name('home');
 
 
 
@@ -87,4 +87,27 @@ Route::get('/kataSent/{id}','KataController@kataSent');
 //Route::resource('experience', 'ExperienceController');
     //return view('welcome');
 
+use App\Providers\RouteServiceProvider;
 
+
+
+Route::view('/faq', 'faq.faqIndex');
+// Route::get('/readquestion', 'PostController@getAllQuestions');
+Route::get('/readquestion', 'PostController@show')->name('allquestions');
+
+Route::get('/uniquequestion/{post_id}', 'PostController@showUniqueQuestionID');
+Route::post('/createanswer', 'AnswerController@store');
+
+
+Route::resource('answers', 'AnswerController')->except([
+    'store'
+]);
+Route::resource('questions', 'PostController')->except([
+    'showUniqueQuestionID', 'show'
+]);
+
+
+Route::get('/createquestion', function () {
+    return view('faq.createQuestion');
+});
+//Auth::routes();

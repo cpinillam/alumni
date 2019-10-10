@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php use App\Role; ?>
 =======
 >>>>>>> 9b54c08537fc0b022e49c36513cde90f0bcd598a
+=======
+>>>>>>> 6ad1b7aa30ad7c69b72d4ed3b08fbc229766859e
 @extends('layouts.app')
 
 @section('content')
@@ -44,6 +47,7 @@
                         </div>
 
                         <div class="form-group row">
+<<<<<<< HEAD
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
 
                             <div class="col-md-6">
@@ -64,6 +68,8 @@
                         </div>
 
                         <div class="form-group row">
+=======
+>>>>>>> 6ad1b7aa30ad7c69b72d4ed3b08fbc229766859e
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

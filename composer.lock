@@ -3118,6 +3118,7 @@
         },
         {
             "name": "facade/ignition",
+<<<<<<< HEAD
             "version": "1.11.1",
             "source": {
                 "type": "git",
@@ -3128,6 +3129,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/facade/ignition/zipball/dc56111b19e160236084dc6ab460e9c08912ecac",
                 "reference": "dc56111b19e160236084dc6ab460e9c08912ecac",
+=======
+            "version": "1.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facade/ignition.git",
+                "reference": "4ff9397a24da58b35382802e2d22325b640123ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/4ff9397a24da58b35382802e2d22325b640123ea",
+                "reference": "4ff9397a24da58b35382802e2d22325b640123ea",
+>>>>>>> 6ad1b7aa30ad7c69b72d4ed3b08fbc229766859e
                 "shasum": ""
             },
             "require": {
@@ -3185,7 +3198,11 @@
                 "laravel",
                 "page"
             ],
+<<<<<<< HEAD
             "time": "2019-10-08T07:36:31+00:00"
+=======
+            "time": "2019-09-20T09:37:06+00:00"
+>>>>>>> 6ad1b7aa30ad7c69b72d4ed3b08fbc229766859e
         },
         {
             "name": "facade/ignition-contracts",
@@ -3392,6 +3409,7 @@
         },
         {
             "name": "laravel/ui",
+<<<<<<< HEAD
             "version": "v1.1.0",
             "source": {
                 "type": "git",
@@ -3402,6 +3420,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/ui/zipball/311219ce77022000745403bf95c4585cbad101a0",
                 "reference": "311219ce77022000745403bf95c4585cbad101a0",
+=======
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "15ac62a34c1b07a88da3eff2506ac6ae782c9803"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/15ac62a34c1b07a88da3eff2506ac6ae782c9803",
+                "reference": "15ac62a34c1b07a88da3eff2506ac6ae782c9803",
+>>>>>>> 6ad1b7aa30ad7c69b72d4ed3b08fbc229766859e
                 "shasum": ""
             },
             "require": {
@@ -3417,7 +3447,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.x-dev"
+=======
+                    "dev-master": "1.0-dev"
+>>>>>>> 6ad1b7aa30ad7c69b72d4ed3b08fbc229766859e
                 },
                 "laravel": {
                     "providers": [
@@ -3445,7 +3479,11 @@
                 "laravel",
                 "ui"
             ],
+<<<<<<< HEAD
             "time": "2019-10-08T13:19:35+00:00"
+=======
+            "time": "2019-09-02T16:34:23+00:00"
+>>>>>>> 6ad1b7aa30ad7c69b72d4ed3b08fbc229766859e
         },
         {
             "name": "mockery/mockery",
