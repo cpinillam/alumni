@@ -10,9 +10,9 @@
 
     </head>
     <body>
-
+        @extends('layouts.global')
+        
         <div class="container-fluid">
-           
        
             <ol>
                 @foreach($joboffer as $offer)

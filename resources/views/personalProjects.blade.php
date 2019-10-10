@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!-- Styles -->
         <style>
@@ -64,6 +65,7 @@
         </style>
     </head>
     <body>
+            @extends('layouts.global')
         <div class="container-fluid">
                 <ol>
                         @foreach($personalProject as $project)
@@ -76,19 +78,20 @@
                                <li>
                                     Detail: <form action="{{route('personalsprojects.show',$project->id)}}" method="get">
                                             @csrf
-                                            <input type="submit" value="Detail">
+                                            <input type="submit" value="Detail" class="btn btn-success">
                                         </form>
                                </li>
                             </ol> 
                         </li>                        
                         @endforeach
-                        <li><a href="/project-form">Create a new Project</a></li>
                         @if(session('sucess'))
                             <div class="alert alert-success">
                                 {{ session('sucess') }}
                             </div>
                     @endif
                     </ol>
+
+                    <button class="btn btn-primary"><a href="/project-form" class="text-white">Create a new Project</a></button>
         </div>
     </body>
 </html>

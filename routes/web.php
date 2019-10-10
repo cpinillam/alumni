@@ -14,10 +14,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome'); //nuevaOferta
+    return view('content'); //nuevaOferta
 }); 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::resource('/joboffers','JobOfferController');
+
+/* Route::get('/offer','JobOfferController@index')->name('offer');
+Route::get('/project','JobOfferController@index')->name('project'); */
+
 
 Route::resource('/personalsprojects','PersonalProjectController');
 
